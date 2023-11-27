@@ -1,0 +1,18 @@
+#mySidenav {
+    background-color: var(--sidenav-color);
+    padding: 10px;
+}
+
+#sidenavContent {
+    background-color: var(--background-color);
+    color: black;
+}
+
+.page {
+    color: black;
+
+    &:hover {
+        background-color: lightblue;
+        border-radius: 5px;
+    }
+}

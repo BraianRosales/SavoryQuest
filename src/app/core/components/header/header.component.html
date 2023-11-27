@@ -1,7 +1,9 @@
 <main class="header">
   <section class="main">
-    <div class="burger">
-      <mat-icon>menu</mat-icon>
+    <div class="menu">
+      <button mat-icon-button>
+        <mat-icon (click)="onMenuToggleClick()">menu</mat-icon>
+      </button>
     </div>
     <div class="projectName">
       <h1>Savory Quest</h1>

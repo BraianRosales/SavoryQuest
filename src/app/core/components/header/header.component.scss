@@ -1,8 +1,8 @@
 @use '../../../../scss/util' as u;
 
 .header {
-    background-color: u.$primary-color;
-    height: 200px;
+    background-color: var(--header-color);
+    height: 20vh;
     width: 100%;
     color: white;
     display: flex;
@@ -10,28 +10,32 @@
     box-shadow: 0px 2px 3px black;
 
     .main {
-        width: 45%;
+        width: 30%;
         display: flex;
         align-items: center;
-        gap: 25px;
+        gap: 15px;
 
-        .burger {
+        .menu {
             height: 100%;
             width: 20%;
             display: flex;
             justify-content: flex-end;
             align-items: center;
 
+            .mat-icon-button {
+                width: 65px;
+                height: 65px;
+            }
+
             mat-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 60px;
+                width: 100%;
+                font-size: 55px;
                 color: u.$lighter-blue-1;
                 cursor: pointer;
                 transition: color 500ms ease-in-out;
 
                 &:hover {
-                    color: u.$secondary-color;
+                    color: u.$lighter-red-1;
                 }
             }
         }
