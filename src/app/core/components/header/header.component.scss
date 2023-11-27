@@ -35,7 +35,7 @@
                 transition: color 500ms ease-in-out;
 
                 &:hover {
-                    color: u.$lighter-red-1;
+                    color: u.$secondary-color;
                 }
             }
         }
@@ -48,12 +48,12 @@
 
             & h1 {
                 font-size: 46px;
+                text-shadow: 2px 2px 3px black;
             }
 
             & p {
                 font-size: 22px;
-                color: u.$lighter-blue-1;
-                text-shadow: 2px 2px 3px black;
+                color: u.$lighter-orange;
             }
         }
     }
@@ -65,8 +65,8 @@
         align-items: center;
 
         .iconWrapper {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             background-color: whitesmoke;
             display: flex;
             justify-content: center;
@@ -77,7 +77,7 @@
                 width: 40px;
                 height: 40px;
                 font-size: 40px;
-                color: u.$lighter-blue-2;
+                color: u.$purple;
             }
         }
 

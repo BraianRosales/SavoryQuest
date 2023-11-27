@@ -1,15 +1,14 @@
 // COLOR PALETTE
 $lighter-blue-1: lightblue;
-$lighter-blue-2: #9FA4D7;
-$dark-blue-1: #001F3F;
-$dark-blue-2: #2c5f74;
-$lighter-red-1: #F9A3A3;
-
-
+$purple: #9FA4D7;
+$blue: blue;
+$dark-blue: #001F3F;
+$dark-green: #2c5f74;
+$lighter-orange: #f7685d;
+$dark-orange: orangered;
 // BASE
-$primary-color: $dark-blue-2;
-$secondary-color: $lighter-red-1;
-
+$primary-color: $dark-green;
+$secondary-color: $dark-orange;
 // BUTTON
-$primary-button-background: $lighter-blue-2;
-$secondary-button-background: $dark-blue-1;
+$primary-button-background: $purple;
+$secondary-button-background: $dark-blue;

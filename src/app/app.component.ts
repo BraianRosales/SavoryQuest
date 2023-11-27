@@ -1,6 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
+interface Page {
+  name: string;
+  icon: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,24 +14,43 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AppComponent {
   title = 'SavoryQuest';
   @ViewChild('sidenav') sidenav!: MatSidenav;
-  pages: string[] = [
-    'Categories',
-    'My favorites',
-    'Areas',
-    'App Code',
-    'Portfolio',
+  pages: Page[] = [
+    {
+      name: 'Categories',
+      icon: 'assignment',
+    },
+    {
+      name: 'My favorites',
+      icon: 'stars',
+    },
+    {
+      name: 'Areas',
+      icon: 'location_on',
+    },
   ];
-  selectedPage: string = this.pages[0];
+
+  links: Page[] = [
+    {
+      name: 'App code',
+      icon: 'developer_mode',
+    },
+    {
+      name: 'Portfolio',
+      icon: 'assignment_ind',
+    },
+  ];
+
+  selectedPage: string = this.pages[0].name;
 
   onMenuToggle(): void {
     this.sidenav.toggle();
   }
 
-  selectPage(page: string): void {
-    this.selectedPage = page;
+  selectPage(page: Page): void {
+    this.selectedPage = page.name;
   }
 
-  isPageSelected(page: string): boolean {
-    return this.selectedPage === page;
+  isPageSelected(page: Page): boolean {
+    return this.selectedPage === page.name;
   }
 }
