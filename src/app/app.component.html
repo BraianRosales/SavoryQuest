@@ -1,6 +1,6 @@
 <app-header (menuToggle)="onMenuToggle()"></app-header>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav id="mySidenav" style="width: 300px">
+  <mat-sidenav #sidenav id="mySidenav" style="width: 275px">
     <mat-selection-list #views [multiple]="false">
       <mat-list-option
         class="page"
@@ -21,7 +21,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div id="sidenavContent" style="height: 80vh">
+    <div id="sidenavContent" style="height: 78vh">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

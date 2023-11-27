@@ -1,10 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-
-interface Page {
-  name: string;
-  icon: string;
-}
+import { Page } from './core/models/page.interface';
 
 @Component({
   selector: 'app-root',
