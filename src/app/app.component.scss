@@ -12,7 +12,13 @@
     color: black;
 
     &:hover {
+        // TODO: LLevarlo a un mixin.
         background-color: lightblue;
         border-radius: 5px;
     }
+}
+
+.selected-page {
+    background-color: lightblue;
+    border-radius: 5px;
 }

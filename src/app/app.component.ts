@@ -16,8 +16,17 @@ export class AppComponent {
     'App Code',
     'Portfolio',
   ];
+  selectedPage: string = this.pages[0];
 
   onMenuToggle(): void {
     this.sidenav.toggle();
+  }
+
+  selectPage(page: string): void {
+    this.selectedPage = page;
+  }
+
+  isPageSelected(page: string): boolean {
+    return this.selectedPage === page;
   }
 }

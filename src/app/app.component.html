@@ -1,9 +1,17 @@
 <app-header (menuToggle)="onMenuToggle()"></app-header>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav id="mySidenav"  style="width: 300px;">
-    <mat-nav-list>
-      <a mat-list-item class="page" *ngFor="let page of pages"> {{ page }} </a>
-    </mat-nav-list>
+  <mat-sidenav #sidenav id="mySidenav" style="width: 300px">
+    <mat-selection-list #views [multiple]="false">
+      <mat-list-option
+        class="page"
+        *ngFor="let page of pages"
+        [value]="page"
+        [ngClass]="{ 'selected-page': isPageSelected(page) }"
+        (click)="selectPage(page)"
+      >
+        {{ page }}
+      </mat-list-option>
+    </mat-selection-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <div id="sidenavContent" style="height: 80vh">
