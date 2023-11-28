@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Page } from './core/models/page.interface';
+import { Page } from './app.model';
 
 @Component({
   selector: 'app-root',
