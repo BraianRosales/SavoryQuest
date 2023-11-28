@@ -1,3 +1,5 @@
+@use '../scss/util' as u;
+
 #mySidenav {
     background-color: var(--sidenav-color);
     padding: 10px;
@@ -6,19 +8,61 @@
 #sidenavContent {
     background-color: var(--background-color);
     color: black;
+    display: flex;
+    justify-content: center;
+
+    .main {
+        width: 75%;
+        padding: 50px 0px 50px 0px;
+    }
 }
 
 .page {
     color: black;
+    margin-bottom: 5px;
 
     &:hover {
         // TODO: LLevarlo a un mixin.
-        background-color: lightblue;
+        background-color: u.$lighter-blue-1;
         border-radius: 5px;
+    }
+
+    .nameWithIcon {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+mat-icon {
+    height: 25px;
+    width: 25px;
+    font-size: 25px;
+    color: black;
+}
+
+.divider {
+    background-color: gainsboro;
+    margin: 10px 0px 5px 0px;
+}
+
+.link {
+    color: black;
+    margin-left: 10px;
+
+    &:hover {
+        color: u.$secondary-color;
     }
 }
 
 .selected-page {
-    background-color: lightblue;
+    background-color: u.$lighter-blue-1;
     border-radius: 5px;
+
+    .nameWithIcon {
+
+        mat-icon {
+            color: u.$dark-green;
+        }
+    }
 }

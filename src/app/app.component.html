@@ -1,6 +1,6 @@
 <app-header (menuToggle)="onMenuToggle()"></app-header>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav id="mySidenav" style="width: 300px">
+  <mat-sidenav #sidenav id="mySidenav" style="width: 275px">
     <mat-selection-list #views [multiple]="false">
       <mat-list-option
         class="page"
@@ -9,13 +9,22 @@
         [ngClass]="{ 'selected-page': isPageSelected(page) }"
         (click)="selectPage(page)"
       >
-        {{ page }}
+        <span class="nameWithIcon"><mat-icon>{{page.icon}}</mat-icon> {{ page.name }}</span>
       </mat-list-option>
     </mat-selection-list>
+    <mat-divider class="divider"></mat-divider>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let link of links">
+        <mat-icon>{{link.icon}}</mat-icon>
+        <a class="link" href="...">{{ link.name }}</a>
+      </mat-list-item>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div id="sidenavContent" style="height: 80vh">
-      <router-outlet></router-outlet>
+    <div id="sidenavContent" style="min-height: 78vh">
+      <div class="main">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
