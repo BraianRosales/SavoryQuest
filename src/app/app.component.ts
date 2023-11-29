@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Page } from './app.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +15,17 @@ export class AppComponent {
     {
       name: 'Categories',
       icon: 'assignment',
+      route: 'categories',
     },
     {
       name: 'My favorites',
       icon: 'stars',
+      route: 'favorites',
     },
     {
       name: 'Areas',
       icon: 'location_on',
+      route: 'areas',
     },
   ];
 
@@ -29,14 +33,17 @@ export class AppComponent {
     {
       name: 'App code',
       icon: 'developer_mode',
+      route: 'https://github.com/BraianRosales/SavoryQuest',
     },
     {
       name: 'Portfolio',
       icon: 'assignment_ind',
+      route: 'https://portfoliobradev.netlify.app/',
     },
   ];
-
   selectedPage: string = this.pages[0].name;
+
+  constructor(private router: Router) {}
 
   onMenuToggle(): void {
     this.sidenav.toggle();
@@ -44,6 +51,7 @@ export class AppComponent {
 
   selectPage(page: Page): void {
     this.selectedPage = page.name;
+    this.router.navigate([`/${page.route}`]);
   }
 
   isPageSelected(page: Page): boolean {
