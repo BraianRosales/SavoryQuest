@@ -1,13 +1,23 @@
-<h1>Categories</h1>
 <main class="categories">
-  <mat-card *ngFor="let category of categories" class="card">
-    <mat-card-header>
-      <mat-card-title>{{ category.strCategory }}</mat-card-title>
-    </mat-card-header>
-    <img
-      mat-card-image
-      src="{{ category.strCategoryThumb }}"
-      alt="{{ category.strCategory }}"
-    />
-  </mat-card>
+  <h1>Categories</h1>
+  <section
+    class="list"
+    *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
+  >
+    <mat-card *ngFor="let category of categories" class="card">
+      <mat-card-header>
+        <mat-card-title class="title">
+          {{ category.strCategory }}
+        </mat-card-title>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="{{ category.strCategoryThumb }}"
+        alt="{{ category.strCategory }}"
+      />
+    </mat-card>
+  </section>
+  <ng-template #showSpinner>
+    <app-spinner class="spinner"></app-spinner>
+  </ng-template>
 </main>
