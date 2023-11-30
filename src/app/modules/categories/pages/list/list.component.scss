@@ -1,0 +1,59 @@
+@use "../../../../../scss/util" as u;
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    h1 {
+        position: relative;
+        width: fit-content;
+        height: 35px;
+        color: u.$primary-color;
+    }
+
+    h1::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 45%;
+        height: 4px;
+        background-color: u.$lighter-orange;
+        border-radius: 2px;
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+
+        .card {
+            max-width: 300px;
+            background: mintcream;
+            color: black;
+            padding-bottom: 20px;
+
+            .title {
+                color: white;
+                background-color: u.$dark-orange;
+                padding: 5px;
+                border-radius: 5px;
+                opacity: 0.8;
+            }
+
+            &:hover {
+                box-shadow: 0px 1px 5px slategrey;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+    }
+}
