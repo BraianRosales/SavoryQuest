@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
       });
   }
 
-  redirectToCategoryDetail(idCategory: string) {
-    this.router.navigate([`categories/${idCategory}`]);
+  redirectToDetail(name: string) {
+    this.router.navigate([`categories/${name}`]);
   }
 }

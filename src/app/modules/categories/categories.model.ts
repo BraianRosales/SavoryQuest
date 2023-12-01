@@ -8,3 +8,13 @@ export interface Category {
   strCategoryThumb: string;
   strCategoryDescription: string;
 }
+
+export interface CategoryMeals {
+  meals: Meal[];
+}
+
+export interface Meal {
+  strMeal: string;
+  strMealThumb: string;
+  idMeal: string;
+}

@@ -1,1 +1,14 @@
-<p>category works!</p>
+<main class="category">
+  <h1>{{ name }}</h1>
+  <section
+    class="list"
+    *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
+  >
+    <div *ngFor="let meal of meals">
+      {{ meal | json }}
+    </div>
+  </section>
+  <ng-template #showSpinner>
+    <app-spinner class="spinner"></app-spinner>
+  </ng-template>
+</main>

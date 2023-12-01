@@ -1,0 +1,39 @@
+@use "../../../../../scss/util" as u;
+
+.category {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    h1 {
+        position: relative;
+        width: fit-content;
+        height: 35px;
+        color: u.$primary-color;
+    }
+
+    h1::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 45%;
+        height: 4px;
+        background-color: u.$lighter-orange;
+        border-radius: 2px;
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+    }
+}

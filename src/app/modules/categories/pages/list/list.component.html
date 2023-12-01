@@ -7,7 +7,7 @@
     <mat-card
       class="card"
       *ngFor="let category of categories"
-      (click)="goToCategoryDetail(category.idCategory)"
+      (click)="redirectToDetail(category.strCategory)"
     >
       <mat-card-header>
         <mat-card-title class="title">
