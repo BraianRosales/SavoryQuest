@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { CategoriesService } from '../../categories.service';
-import { CategoryMeals, Meal } from '../../categories.model';
+import {
+  CategoriesResponse,
+  Category,
+  CategoryMeals,
+  Meal,
+} from '../../categories.model';
 import { SpinnerService } from 'src/app/shared/services/spinner.service';
 @Component({
   selector: 'app-category',
@@ -10,6 +15,7 @@ import { SpinnerService } from 'src/app/shared/services/spinner.service';
   styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
+  category: Category | undefined;
   meals!: Meal[];
   name: string = '';
 
@@ -20,13 +26,23 @@ export class CategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params
-      .pipe(
-        switchMap(({ name }) => {
-          this.name = name;
-          return this.categoriesService.getCategoryByName(name);
-        })
-      )
+    this.activatedRoute.params.subscribe(({ name }) => {
+      this.name = name;
+      this.loadCategory(name);
+    });
+  }
+
+  loadCategory(name: string): void {
+    this.categoriesService
+      .getCategories()
+      .subscribe((res: CategoriesResponse) => {
+        this.category = res.categories.find(
+          (category: Category) => category.strCategory === name
+        );
+      });
+
+    this.categoriesService
+      .getCategoryByName(name)
       .subscribe((categoryMeals: CategoryMeals) => {
         this.meals = categoryMeals.meals;
       });

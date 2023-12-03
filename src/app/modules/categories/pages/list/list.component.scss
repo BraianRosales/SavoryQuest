@@ -12,12 +12,13 @@
         color: u.$primary-color;
     }
 
+    // TODO: This h1 has to be inside a mixin.
     h1::after {
         content: "";
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 45%;
+        width: 42%;
         height: 4px;
         background-color: u.$lighter-orange;
         border-radius: 2px;
