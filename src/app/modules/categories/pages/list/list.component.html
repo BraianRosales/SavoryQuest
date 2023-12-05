@@ -1,25 +1,27 @@
-<main class="categories">
-  <h1>Categories</h1>
+<main class="listContainer">
   <section
-    class="list"
+    class="wrapper"
     *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
   >
-    <mat-card
-      class="card"
-      *ngFor="let category of categories"
-      (click)="redirectToDetail(category.strCategory)"
-    >
-      <mat-card-header>
-        <mat-card-title class="title">
-          {{ category.strCategory }}
-        </mat-card-title>
-      </mat-card-header>
-      <img
-        mat-card-image
-        src="{{ category.strCategoryThumb }}"
-        alt="{{ category.strCategory }}"
-      />
-    </mat-card>
+    <h1>Categories</h1>
+    <div class="list">
+      <mat-card
+        class="card"
+        *ngFor="let category of categories"
+        (click)="redirectToDetail(category.strCategory)"
+      >
+        <mat-card-header>
+          <mat-card-title class="title">
+            {{ category.strCategory }}
+          </mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="{{ category.strCategoryThumb }}"
+          alt="{{ category.strCategory }}"
+        />
+      </mat-card>
+    </div>
   </section>
   <ng-template #showSpinner>
     <app-spinner class="spinner"></app-spinner>

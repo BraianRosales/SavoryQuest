@@ -1,2 +1,9 @@
-<h1>Search component</h1>
-<router-outlet></router-outlet>
+<div class="categories">
+  <app-input
+    [group]="myForm"
+    [controlName]="'search'"
+    [icon]="'search'"
+    [width]="'400px'"
+  ></app-input>
+  <router-outlet></router-outlet>
+</div>
