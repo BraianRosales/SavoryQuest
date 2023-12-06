@@ -23,9 +23,9 @@ export class AppComponent {
       route: 'favorites',
     },
     {
-      name: 'Areas',
-      icon: 'location_on',
-      route: 'areas',
+      name: 'Searches',
+      icon: 'search',
+      route: 'searches',
     },
   ];
 

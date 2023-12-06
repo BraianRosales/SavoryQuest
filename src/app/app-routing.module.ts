@@ -22,9 +22,11 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'areas',
+    path: 'searches',
     loadChildren: () =>
-      import('./modules/areas/areas.module').then((m) => m.AreasModule),
+      import('./modules/searches/searches.module').then(
+        (m) => m.SearchesModule
+      ),
   },
 ];
 
