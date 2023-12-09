@@ -9,11 +9,11 @@ export interface Category {
   strCategoryDescription: string;
 }
 
-export interface CategoryMeals {
-  meals: Meal[];
+export interface CategoryRecipes {
+  meals: Recipe[];
 }
 
-export interface Meal {
+export interface Recipe {
   strMeal: string;
   strMealThumb: string;
   idMeal: string;

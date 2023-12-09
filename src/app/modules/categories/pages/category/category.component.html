@@ -2,15 +2,38 @@
   class="category"
   *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
 >
-  <h1>{{ name }}</h1>
-  <section>
-    {{ category | json }}
-  </section>
-  <h1>Recipes</h1>
-  <section class="list">
-    <div *ngFor="let meal of meals">
-      {{ meal | json }}
-    </div>
+  <section class="details">
+    <section class="content">
+      <div class="wrapper">
+        <div class="imageWrapper">
+          <img
+            src="{{ category?.strCategoryThumb }}"
+            alt="{{ category?.strCategory }}"
+          />
+        </div>
+        <article class="description">
+          <h1>{{ category?.strCategory }}</h1>
+          <p>{{ category?.strCategoryDescription }}</p>
+        </article>
+      </div>
+    </section>
+    <section class="recipesContent">
+      <h1>Recipes from the category</h1>
+      <div class="list">
+        <mat-card class="card" *ngFor="let recipe of recipes">
+          <mat-card-header>
+            <mat-card-title class="title">
+              {{ recipe.strMeal }}
+            </mat-card-title>
+          </mat-card-header>
+          <img
+            mat-card-image
+            src="{{ recipe.strMealThumb }}"
+            alt="{{ recipe.strMeal }}"
+          />
+        </mat-card>
+      </div>
+    </section>
   </section>
 </main>
 <ng-template #showSpinner>

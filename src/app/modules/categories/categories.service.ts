@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CategoriesResponse, CategoryMeals } from './categories.model';
+import { CategoriesResponse, CategoryRecipes } from './categories.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class CategoriesService {
   }
 
   getCategoryByName(name: string) {
-    return this.http.get<CategoryMeals>(
+    return this.http.get<CategoryRecipes>(
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`
     );
   }

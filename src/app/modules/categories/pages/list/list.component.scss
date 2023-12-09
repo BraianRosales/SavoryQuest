@@ -1,26 +1,15 @@
 @use "../../../../../scss/util" as u;
 
 .listContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-
     .wrapper {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 25px;
     }
 
 
     h1 {
-        position: relative;
-        width: fit-content;
-        height: 35px;
         color: u.$primary-color;
-    }
-
-    h1::after {
-        @include u.underlinedTitle()
     }
 
     .list {
@@ -31,7 +20,7 @@
 
         .card {
             width: 300px;
-            background: #fefefe;
+            background: u.$white-background;
             color: black;
             padding-bottom: 20px;
 

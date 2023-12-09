@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { CategoriesService } from '../../categories.service';
 import {
   CategoriesResponse,
   Category,
-  CategoryMeals,
-  Meal,
+  CategoryRecipes,
+  Recipe,
 } from '../../categories.model';
 import { SpinnerService } from 'src/app/shared/services/spinner.service';
 @Component({
@@ -16,8 +15,7 @@ import { SpinnerService } from 'src/app/shared/services/spinner.service';
 })
 export class CategoryComponent implements OnInit {
   category: Category | undefined;
-  meals!: Meal[];
-  name: string = '';
+  recipes!: Recipe[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,7 +25,6 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({ name }) => {
-      this.name = name;
       this.loadCategory(name);
     });
   }
@@ -43,8 +40,8 @@ export class CategoryComponent implements OnInit {
 
     this.categoriesService
       .getCategoryByName(name)
-      .subscribe((categoryMeals: CategoryMeals) => {
-        this.meals = categoryMeals.meals;
+      .subscribe((categoryRecipes: CategoryRecipes) => {
+        this.recipes = categoryRecipes.meals;
       });
   }
 }
