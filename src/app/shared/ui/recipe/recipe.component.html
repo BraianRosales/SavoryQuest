@@ -1,0 +1,15 @@
+<div class="recipe">
+  <img
+    mat-card-image
+    src="{{ recipe.strMealThumb }}"
+    alt="Photo not found..."
+  />
+  <mat-card-content class="description">
+    <p>
+      {{ recipe.strMeal }}
+    </p>
+    <mat-icon (click)="addToFavorites()" class="icon">
+      {{ favoriteIcon }}
+    </mat-icon>
+  </mat-card-content>
+</div>

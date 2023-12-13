@@ -1,0 +1,22 @@
+@use "../../../../scss/util" as u;
+
+.recipe {
+    width: 300px;
+    background: transparent;
+    padding-top: 0px;
+
+    .description {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            color: black;
+            line-height: normal;
+        }
+
+        .icon {
+            font-size: 24px;
+            color: u.$lighter-orange;
+        }
+    }
+}

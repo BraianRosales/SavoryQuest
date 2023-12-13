@@ -19,7 +19,7 @@ export class AppComponent {
     },
     {
       name: 'My favorites',
-      icon: 'stars',
+      icon: 'favorite',
       route: 'favorites',
     },
     {

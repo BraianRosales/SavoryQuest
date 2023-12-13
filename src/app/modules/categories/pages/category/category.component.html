@@ -9,7 +9,6 @@
           <img
             src="{{ category?.strCategoryThumb }}"
             alt="{{ category?.strCategory }}"
-            of
           />
         </div>
         <article class="description">
@@ -23,16 +22,7 @@
       <h1>Recipes</h1>
       <div class="list">
         <mat-card class="card" *ngFor="let recipe of recipes">
-          <img
-            mat-card-image
-            src="{{ recipe.strMealThumb }}"
-            alt="Photo not found..."
-          />
-          <mat-card-content>
-            <p>
-              {{ recipe.strMeal }}
-            </p>
-          </mat-card-content>
+          <app-recipe [recipe]="recipe"></app-recipe>
         </mat-card>
       </div>
     </section>

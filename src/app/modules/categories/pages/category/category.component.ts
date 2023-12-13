@@ -8,6 +8,7 @@ import {
   Recipe,
 } from '../../categories.model';
 import { SpinnerService } from 'src/app/shared/services/spinner.service';
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
