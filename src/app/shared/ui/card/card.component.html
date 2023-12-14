@@ -1,5 +1,6 @@
-<div class="recipe">
+<div class="card">
   <img
+    (click)="seeDetail(recipe.idMeal)"
     mat-card-image
     src="{{ recipe.strMealThumb }}"
     alt="Photo not found..."

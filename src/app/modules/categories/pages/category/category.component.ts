@@ -45,4 +45,8 @@ export class CategoryComponent implements OnInit {
         this.recipes = categoryRecipes.meals;
       });
   }
+
+  redirectToRecipeDetail(id: string) {
+    console.log('ID:', id);
+  }
 }

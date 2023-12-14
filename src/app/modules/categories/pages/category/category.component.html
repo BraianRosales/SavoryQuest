@@ -22,7 +22,10 @@
       <h1>Recipes</h1>
       <div class="list">
         <mat-card class="card" *ngFor="let recipe of recipes">
-          <app-recipe [recipe]="recipe"></app-recipe>
+          <app-card
+            [recipe]="recipe"
+            (imgClick)="redirectToRecipeDetail($event)"
+          ></app-card>
         </mat-card>
       </div>
     </section>
