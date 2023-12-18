@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from '../../categories.service';
 import {
   CategoriesResponse,
@@ -21,7 +21,8 @@ export class CategoryComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private categoriesService: CategoriesService,
-    public spinnerService: SpinnerService
+    public spinnerService: SpinnerService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +48,6 @@ export class CategoryComponent implements OnInit {
   }
 
   redirectToRecipeDetail(id: string) {
-    console.log('ID:', id);
+    this.router.navigate([`recipe/${id}`]);
   }
 }

@@ -28,6 +28,11 @@ const routes: Routes = [
         (m) => m.SearchesModule
       ),
   },
+  {
+    path: 'recipe',
+    loadChildren: () =>
+      import('./modules/recipe/recipe.module').then((m) => m.RecipeModule),
+  },
 ];
 
 @NgModule({

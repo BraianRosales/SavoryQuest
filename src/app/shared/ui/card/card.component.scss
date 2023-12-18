@@ -5,6 +5,10 @@
     background: transparent;
     padding-top: 0px;
 
+    img {
+        cursor: pointer;
+    }
+
     .description {
         display: flex;
         justify-content: space-between;
@@ -17,6 +21,7 @@
         .icon {
             font-size: 24px;
             color: u.$lighter-orange;
+            cursor: pointer;
         }
     }
 }
