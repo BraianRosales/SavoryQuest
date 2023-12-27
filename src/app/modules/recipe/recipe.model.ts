@@ -2,7 +2,7 @@ export interface FullRecipeReponse {
   meals: FullRecipe[];
 }
 
-export interface FullRecipe {
+export interface FullRecipeStatic {
   idMeal: string;
   strMeal: string;
   strDrinkAlternate: string | null;
@@ -10,16 +10,16 @@ export interface FullRecipe {
   strArea: string;
   strInstructions: string;
   strMealThumb: string;
-  strTags: string[] | null;
+  strTags: string;
   strYoutube: string;
-  strIngredient1: string;
-  strIngredient2: string;
-  // ... (continúa con el resto de los ingredientes)
-  strMeasure1: string;
-  strMeasure2: string;
-  // ... (continúa con el resto de las medidas)
   strSource: string;
   strImageSource: string | null;
   strCreativeCommonsConfirmed: string | null;
   dateModified: Date | null;
+}
+
+// Defines an interface for the entire object, including dynamic properties.
+export interface FullRecipe extends FullRecipeStatic {
+  ingredients: string[]; // Array for ingredients.
+  measures: string[]; // Array for measures.
 }

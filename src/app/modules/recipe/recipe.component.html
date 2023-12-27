@@ -1,2 +1,44 @@
-<p>recipe works!</p>
-<router-outlet></router-outlet>
+<div class="recipe">
+  <div
+    class="content"
+    *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
+  >
+    <main>
+      <section class="videoYT"></section>
+      <section class="detail">
+        <h1>{{ fullRecipe.strMeal }}</h1>
+        <div class="iconContainer">
+          <mat-icon (click)="addToFavorites()">{{ favoriteIcon }}</mat-icon>
+        </div>
+        <div class="info">
+          <b>Category:</b>
+          <p>{{ fullRecipe.strCategory }}</p>
+        </div>
+        <div class="info">
+          <b>Area:</b>
+          <p class="area">{{ fullRecipe.strArea }}</p>
+        </div>
+        <div class="info tags">
+          <b>Tags:</b>
+          <span class="tag" *ngFor="let tag of tags">{{ tag }}</span>
+        </div>
+        <div class="ingredients">
+          <h2>Ingredients</h2>
+          <div class="list">
+            <div
+              class="ingredient"
+              *ngFor="let ingredient of fullRecipe.ingredients"
+            >
+              <span>{{ ingredient }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="measures"></div>
+      </section>
+    </main>
+    <article></article>
+  </div>
+  <ng-template #showSpinner>
+    <app-spinner class="spinner"></app-spinner>
+  </ng-template>
+</div>

@@ -1,15 +1,15 @@
 @use '../../../../scss/util' as u;
 
-.header {
+header {
     background-color: var(--header-color);
-    height: 18vh;
+    height: 20vh;
     width: 100%;
     color: white;
     display: flex;
     justify-content: space-between;
 
-    .main {
-        width: 30%;
+    .presentation {
+        width: 42%;
         display: flex;
         align-items: center;
         gap: 15px;

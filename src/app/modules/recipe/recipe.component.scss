@@ -1,0 +1,123 @@
+@use "../../../scss/util" as u;
+
+.recipe {
+    .content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        main {
+            height: 430px;
+            display: flex;
+            justify-content: space-between;
+
+            .videoYT {
+                width: 56%;
+                height: 100%;
+                background-color: gainsboro;
+            }
+
+            .detail {
+                width: 42%;
+                height: 100%;
+                background-color: white;
+                padding: 15px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+
+                h1 {
+                    margin-bottom: 0px;
+                }
+
+                .iconContainer {
+                    position: absolute;
+                    top: 18px;
+                    right: 22px;
+
+                    mat-icon {
+                        color: u.$lighter-orange;
+                        height: 30px;
+                        width: 30px;
+                        font-size: 30px;
+                        cursor: pointer;
+                    }
+                }
+
+                .info {
+                    display: flex;
+                    gap: 5px;
+
+                    b {
+                        font-size: u.$font-size-small;
+                    }
+
+                    p {
+                        margin-bottom: 8px;
+                    }
+
+                    .area {
+                        color: u.$blue;
+                    }
+
+                    .tag {
+                        color: white;
+                        background-color: u.$lighter-orange;
+                        padding: 3px 10px 3px 10px;
+                        border-radius: 10px;
+                        font-size: 14px;
+                        margin-right: 3px;
+                    }
+                }
+
+                .tags {
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+
+
+                .ingredients {
+                    background-color: u.$primary-color;
+                    margin-top: 10px;
+                    padding: 10px;
+                    color: white;
+
+                    h2 {
+                        margin-bottom: 0px;
+                    }
+
+                    .list {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        max-height: 200px;
+                    }
+
+                }
+
+
+                .measures {
+                    background-color: u.$purple;
+                }
+            }
+
+
+
+        }
+
+        article {
+            height: 200px;
+            background-color: white;
+        }
+    }
+
+    .spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+    }
+}

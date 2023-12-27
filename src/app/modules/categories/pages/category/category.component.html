@@ -1,8 +1,8 @@
-<main
+<div
   class="category"
   *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
 >
-  <section class="details">
+  <div class="details">
     <section class="content">
       <div class="wrapper">
         <div class="imageWrapper">
@@ -28,8 +28,8 @@
         </mat-card>
       </div>
     </section>
-  </section>
-</main>
+  </div>
+</div>
 <ng-template #showSpinner>
   <app-spinner class="spinner"></app-spinner>
 </ng-template>

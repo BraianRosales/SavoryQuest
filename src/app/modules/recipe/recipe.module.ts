@@ -7,19 +7,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'id',
+    pathMatch: 'full',
+  },
+  {
+    path: ':id',
     component: RecipeComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'id',
-        pathMatch: 'full',
-      },
-      {
-        path: ':id',
-        loadChildren: () =>
-          import('./pages/meal/meal.module').then((m) => m.MealModule),
-      },
-    ],
   },
 ];
 

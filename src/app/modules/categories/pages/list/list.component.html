@@ -1,4 +1,4 @@
-<main class="listContainer">
+<div class="listContainer">
   <section
     class="wrapper"
     *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
@@ -27,4 +27,4 @@
   <ng-template #showSpinner>
     <app-spinner class="spinner"></app-spinner>
   </ng-template>
-</main>
+</div>
