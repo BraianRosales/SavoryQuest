@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SpinnerService } from 'src/app/shared/services/spinner.service';
 import { RecipeService } from './recipe.service';
 import { FullRecipe, FullRecipeReponse } from './recipe.model';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-recipe',
@@ -11,14 +12,16 @@ import { FullRecipe, FullRecipeReponse } from './recipe.model';
 })
 export class RecipeComponent implements OnInit {
   fullRecipe!: FullRecipe;
-  tags: string[] | undefined;
+  tags: string[] = [];
   favoriteIcon: string = 'favorite_border';
-  ingredientsArray: string[] = [];
+  instructions: string[] = [];
+  videoYt: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
     public spinnerService: SpinnerService,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -27,18 +30,31 @@ export class RecipeComponent implements OnInit {
         .getFullRecipeById(id)
         .subscribe((fullRecipeReponse: FullRecipeReponse) => {
           const meal = fullRecipeReponse.meals[0];
-
           const ingredients = this.createIngredients(meal);
           const measures = this.createMeasures(meal);
-
           const fullRecipe: FullRecipe = {
             ...meal,
             ingredients,
             measures,
           };
-
           this.fullRecipe = fullRecipe;
-          this.tags = this.fullRecipe.strTags.split(',');
+          this.videoYt = fullRecipe.strYoutube;
+          const instructionsArray = this.fullRecipe.strInstructions.split('.');
+          // Remove empty elements from the array
+          const nonEmptyInstructions = instructionsArray.filter(
+            (instruction) => {
+              return instruction.trim() !== '';
+            }
+          );
+          // Remove the last element from the array (final point)
+          nonEmptyInstructions.pop();
+          // Store the result in the variable this.instructions
+          this.instructions = nonEmptyInstructions;
+          if (this.fullRecipe.strTags) {
+            this.tags = this.fullRecipe.strTags.split(',');
+          } else {
+            this.tags = [];
+          }
         });
     });
   }

@@ -4,8 +4,8 @@
     *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
   >
     <main>
-      <section class="videoYT"></section>
-      <section class="detail">
+      <img src="{{ fullRecipe.strMealThumb }}" alt="Photo not found..." />
+      <aside class="detail">
         <h1>{{ fullRecipe.strMeal }}</h1>
         <div class="iconContainer">
           <mat-icon (click)="addToFavorites()">{{ favoriteIcon }}</mat-icon>
@@ -20,23 +20,50 @@
         </div>
         <div class="info tags">
           <b>Tags:</b>
-          <span class="tag" *ngFor="let tag of tags">{{ tag }}</span>
+          <p *ngIf="tags?.length == 0">No contiene.</p>
+          <div *ngIf="tags.length">
+            <span class="tag" *ngFor="let tag of tags">{{ tag }}</span>
+          </div>
         </div>
         <div class="ingredients">
           <h2>Ingredients</h2>
           <div class="list">
-            <div
-              class="ingredient"
-              *ngFor="let ingredient of fullRecipe.ingredients"
-            >
-              <span>{{ ingredient }}</span>
+            <div *ngFor="let ingredient of fullRecipe.ingredients">
+              <div class="ingredient">
+                <span></span>
+                <p>{{ ingredient }}</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="measures"></div>
-      </section>
+        <div class="measures">
+          <h2>Measures</h2>
+          <div class="list">
+            <div *ngFor="let measure of fullRecipe.measures">
+              <div *ngIf="measure.trim()" class="measure">
+                .
+                <p>{{ measure }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
     </main>
-    <article></article>
+    <article>
+      <h2>Instructions</h2>
+      <ul>
+        <li *ngFor="let step of instructions">
+          <p>{{ step }}.</p>
+        </li>
+      </ul>
+      <iframe
+        width="100%"
+        height="500"
+        [src]="videoYt"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </article>
   </div>
   <ng-template #showSpinner>
     <app-spinner class="spinner"></app-spinner>

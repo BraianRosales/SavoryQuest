@@ -6,30 +6,30 @@
         display: flex;
         flex-direction: column;
         gap: 25px;
+        padding: 25px;
 
         main {
-            height: 430px;
+            height: 510px;
             display: flex;
             justify-content: space-between;
 
-            .videoYT {
-                width: 56%;
-                height: 100%;
-                background-color: gainsboro;
+            img {
+                width: 52%;
             }
 
             .detail {
-                width: 42%;
+                width: 47%;
                 height: 100%;
                 background-color: white;
                 padding: 15px;
                 position: relative;
                 display: flex;
                 flex-direction: column;
-                gap: 6px;
+                gap: 8px;
 
                 h1 {
                     margin-bottom: 0px;
+                    padding-right: 40px;
                 }
 
                 .iconContainer {
@@ -59,7 +59,7 @@
                     }
 
                     .area {
-                        color: u.$blue;
+                        color: u.$secondary-color;
                     }
 
                     .tag {
@@ -75,17 +75,18 @@
                 .tags {
                     align-items: center;
                     flex-wrap: wrap;
+                    margin-bottom: 5px;
                 }
 
 
-                .ingredients {
+                .ingredients,
+                .measures {
                     background-color: u.$primary-color;
-                    margin-top: 10px;
                     padding: 10px;
                     color: white;
 
                     h2 {
-                        margin-bottom: 0px;
+                        margin-bottom: 5px;
                     }
 
                     .list {
@@ -93,14 +94,37 @@
                         flex-direction: column;
                         justify-content: flex-start;
                         flex-wrap: wrap;
-                        max-height: 200px;
+                        max-height: 110px;
+                        padding: 0px 10px 10px 10px;
+
+                        .ingredient,
+                        .measure {
+                            display: flex;
+                            gap: 5px;
+                            align-items: center;
+
+                            span {
+                                width: 10px;
+                                height: 10px;
+                                background: #f44336;
+                                border-radius: 50%;
+                                border: 1px solid white;
+                            }
+
+                            p {
+                                font-size: u.$font-size-minimum;
+                            }
+                        }
+
                     }
 
                 }
 
 
                 .measures {
-                    background-color: u.$purple;
+                    border: 1px solid u.$border;
+                    background-color: white;
+                    color: u.$black;
                 }
             }
 
@@ -109,8 +133,15 @@
         }
 
         article {
-            height: 200px;
             background-color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            li {
+                margin-bottom: 3px;
+            }
         }
     }
 
