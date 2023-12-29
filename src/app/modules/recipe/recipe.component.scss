@@ -38,7 +38,7 @@
                     right: 22px;
 
                     mat-icon {
-                        color: u.$lighter-orange;
+                        color: u.$medium-orange;
                         height: 30px;
                         width: 30px;
                         font-size: 30px;
@@ -64,7 +64,7 @@
 
                     .tag {
                         color: white;
-                        background-color: u.$lighter-orange;
+                        background-color: u.$medium-orange;
                         padding: 3px 10px 3px 10px;
                         border-radius: 10px;
                         font-size: 14px;
@@ -135,12 +135,26 @@
         article {
             background-color: white;
             padding: 20px;
+            padding-bottom: 100px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
 
-            li {
-                margin-bottom: 3px;
+            ul {
+                margin-bottom: 25px;
+                padding-bottom: 25px;
+
+                li {
+                    margin-bottom: 3px;
+                }
+            }
+
+
+            .videoYt {
+                padding-top: 50px;
+                border-top: 1px solid u.$border;
+                width: 100%;
+                display: flex;
+                justify-content: center;
             }
         }
     }

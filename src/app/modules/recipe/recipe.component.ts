@@ -59,6 +59,26 @@ export class RecipeComponent implements OnInit {
     });
   }
 
+  getSafeVideoUrl(url: string): SafeResourceUrl {
+    // Regular expression to extract video ID from YouTube URL
+    const regex =
+      /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+
+    // Regular expression matches
+    const matches = url.match(regex);
+
+    // If there are matches, build the secure URL
+    if (matches) {
+      const videoId = matches[1];
+      const safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+        `https://www.youtube.com/embed/${videoId}`
+      );
+      return safeUrl;
+    } else {
+      return this.sanitizer.bypassSecurityTrustResourceUrl('about:blank');
+    }
+  }
+
   createIngredients(meal: any): string[] {
     const ingredients: string[] = [];
     Object.keys(meal).forEach((key) => {
