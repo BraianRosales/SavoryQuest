@@ -1,0 +1,28 @@
+@use '../../../../scss/util' as u;
+
+.navigation {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    p {
+        span {
+            margin: -1px;
+            cursor: pointer;
+            transition: 300ms;
+        }
+
+        span:hover {
+            color: u.$secondary-color;
+        }
+
+        .lastTitle {
+            color: u.$secondary-color;
+        }
+
+        .separator {
+            margin-right: 3px;
+        }
+    }
+}

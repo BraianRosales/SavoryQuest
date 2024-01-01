@@ -1,0 +1,24 @@
+<div *ngIf="navigationService.getHistory().length > 1" class="navigation">
+  <p
+    *ngFor="
+      let route of navigationService.getHistory();
+      let i = index;
+      let last = last
+    "
+  >
+    <span (click)="selectPage(route)" [ngClass]="{ lastTitle: last }">
+      {{ route.title }}
+    </span>
+    <span
+      class="separator"
+      *ngIf="!last && i < navigationService.getHistory().length - 1"
+      >\</span
+    >
+  </p>
+</div>
+
+<div *ngIf="navigationService.getHistory().length == 1" class="navigation">
+  <h1>
+    {{ navigationService.getHistory()[0].title }}
+  </h1>
+</div>

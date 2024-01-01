@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CategoriesResponse, Category } from '../../categories.model';
 import { CategoriesService } from '../../categories.service';
 import { SpinnerService } from 'src/app/shared/services/spinner.service';
