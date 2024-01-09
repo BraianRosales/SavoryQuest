@@ -4,6 +4,7 @@ import { SpinnerService } from 'src/app/shared/services/spinner.service';
 import { RecipeService } from './recipe.service';
 import { FullRecipe, FullRecipeReponse } from './recipe.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-recipe',
@@ -21,7 +22,8 @@ export class RecipeComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public spinnerService: SpinnerService,
     private recipeService: RecipeService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -100,8 +102,18 @@ export class RecipeComponent implements OnInit {
   }
 
   addToFavorites() {
-    this.favoriteIcon === 'favorite_border'
-      ? (this.favoriteIcon = 'favorite')
-      : (this.favoriteIcon = 'favorite_border');
+    if (this.favoriteIcon === 'favorite_border') {
+      this.favoriteIcon = 'favorite';
+      this.snackBar.open('Se guardo en favoritos!', 'Aceptar', {
+        duration: 3000,
+        panelClass: 'snackbar-succefully',
+      });
+    } else {
+      this.favoriteIcon = 'favorite_border';
+      this.snackBar.open('Se eliminó de favoritos!', 'Aceptar', {
+        duration: 3000,
+        panelClass: 'snackbar-delete',
+      });
+    }
   }
 }

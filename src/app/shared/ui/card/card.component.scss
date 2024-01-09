@@ -1,5 +1,15 @@
 @use "../../../../scss/util" as u;
 
+::ng-deep.snackbar-succefully {
+    background-color: u.$primary-color;
+    color: white;
+}
+
+::ng-deep.snackbar-delete {
+    background-color: u.$medium-orange;
+    color: white;
+}
+
 .card {
     width: 250px;
     background: transparent;

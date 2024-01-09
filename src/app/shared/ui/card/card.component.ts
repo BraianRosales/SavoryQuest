@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Recipe } from 'src/app/modules/categories/categories.model';
 
 @Component({
@@ -12,14 +13,24 @@ export class CardComponent implements OnInit {
 
   favoriteIcon: string = 'favorite_border';
 
-  constructor() {}
+  constructor(private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
   addToFavorites() {
-    this.favoriteIcon === 'favorite_border'
-      ? (this.favoriteIcon = 'favorite')
-      : (this.favoriteIcon = 'favorite_border');
+    if (this.favoriteIcon === 'favorite_border') {
+      this.favoriteIcon = 'favorite';
+      this.snackBar.open('Se guardo en favoritos!', 'Aceptar', {
+        duration: 3000,
+        panelClass: 'snackbar-succefully',
+      });
+    } else {
+      this.favoriteIcon = 'favorite_border';
+      this.snackBar.open('Se eliminó de favoritos!', 'Aceptar', {
+        duration: 3000,
+        panelClass: 'snackbar-delete',
+      });
+    }
   }
 
   seeDetail(id: string) {
