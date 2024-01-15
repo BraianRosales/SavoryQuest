@@ -1,14 +1,15 @@
 @use "../../../scss/util" as u;
 
 ::ng-deep.snackbar-succefully {
-    background-color: u.$primary-color;
+    background-color: u.$secondary-color;
     color: white;
 }
 
 ::ng-deep.snackbar-delete {
-    background-color: u.$medium-orange;
-    color: white;
+    color: black;
+    background-color: u.$lighter-yellow;
 }
+
 
 .recipe {
     .content {
@@ -48,7 +49,7 @@
                     right: 22px;
 
                     mat-icon {
-                        color: u.$medium-orange;
+                        color: u.$secondary-color;
                         height: 30px;
                         width: 30px;
                         font-size: 30px;
@@ -68,8 +69,9 @@
                         margin-bottom: 8px;
                     }
 
-                    .area {
+                    .highlight {
                         color: u.$secondary-color;
+                        cursor: pointer;
                     }
 
                     .tag {

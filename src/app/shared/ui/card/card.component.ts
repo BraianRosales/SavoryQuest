@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Recipe } from 'src/app/modules/categories/categories.model';
+import { Recipe } from '../../shared.interfaces';
+import { FavoriteRecipesService } from 'src/app/core/services/favorite-recipes.service';
 
 @Component({
   selector: 'app-card',
@@ -13,20 +14,35 @@ export class CardComponent implements OnInit {
 
   favoriteIcon: string = 'favorite_border';
 
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(
+    private snackBar: MatSnackBar,
+    private favoriteRecipesService: FavoriteRecipesService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const recipesIds: string[] = this.favoriteRecipesService
+      .getFavoriteRecipes()
+      .map((r: Recipe) => r.idMeal);
 
-  addToFavorites() {
+    if (recipesIds.includes(this.recipe.idMeal)) {
+      this.favoriteIcon = 'favorite';
+    } else {
+      this.favoriteIcon = 'favorite_border';
+    }
+  }
+
+  addToFavorites(recipe: Recipe) {
     if (this.favoriteIcon === 'favorite_border') {
       this.favoriteIcon = 'favorite';
-      this.snackBar.open('Se guardo en favoritos!', 'Aceptar', {
+      this.favoriteRecipesService.saveRecipe(recipe);
+      this.snackBar.open('Saved in favorites!', 'Close', {
         duration: 3000,
         panelClass: 'snackbar-succefully',
       });
     } else {
       this.favoriteIcon = 'favorite_border';
-      this.snackBar.open('Se eliminó de favoritos!', 'Aceptar', {
+      this.favoriteRecipesService.deleteRecipe(recipe.idMeal);
+      this.snackBar.open('It was removed from favorites!', 'Close', {
         duration: 3000,
         panelClass: 'snackbar-delete',
       });

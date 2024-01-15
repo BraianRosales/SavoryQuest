@@ -1,1 +1,6 @@
-<p>favorites works!</p>
+<div class="favorites">
+  <section class="wrapper">
+    {{ favorites | json }}
+  </section>
+  <button (click)="deleteRecipes()">Clean</button>
+</div>

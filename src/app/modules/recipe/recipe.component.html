@@ -8,15 +8,17 @@
       <aside class="detail">
         <h1>{{ fullRecipe.strMeal }}</h1>
         <div class="iconContainer">
-          <mat-icon (click)="addToFavorites()">{{ favoriteIcon }}</mat-icon>
+          <mat-icon (click)="addToFavorites(fullRecipe)">{{
+            favoriteIcon
+          }}</mat-icon>
         </div>
         <div class="info">
           <b>Category:</b>
-          <p>{{ fullRecipe.strCategory }}</p>
+          <p class="highlight">{{ fullRecipe.strCategory }}</p>
         </div>
         <div class="info">
           <b>Area:</b>
-          <p class="area">{{ fullRecipe.strArea }}</p>
+          <p class="highlight">{{ fullRecipe.strArea }}</p>
         </div>
         <div class="info tags">
           <b>Tags:</b>

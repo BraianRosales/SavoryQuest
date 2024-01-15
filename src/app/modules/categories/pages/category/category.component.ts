@@ -5,11 +5,11 @@ import {
   CategoriesResponse,
   Category,
   CategoryRecipes,
-  Recipe,
 } from '../../categories.model';
 import { SpinnerService } from 'src/app/shared/services/spinner.service';
 import { NavigationService } from 'src/app/shared/services/navigation.service';
 import { NavigationRoute } from 'src/app/shared/ui/navigation/navigation.model';
+import { Recipe } from 'src/app/shared/shared.interfaces';
 
 @Component({
   selector: 'app-category',

@@ -1,3 +1,5 @@
+import { Recipe } from 'src/app/shared/shared.interfaces';
+
 export interface CategoriesResponse {
   categories: Category[];
 }
@@ -11,10 +13,4 @@ export interface Category {
 
 export interface CategoryRecipes {
   meals: Recipe[];
-}
-
-export interface Recipe {
-  strMeal: string;
-  strMealThumb: string;
-  idMeal: string;
 }

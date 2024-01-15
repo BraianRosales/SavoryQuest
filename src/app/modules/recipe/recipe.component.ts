@@ -5,6 +5,8 @@ import { RecipeService } from './recipe.service';
 import { FullRecipe, FullRecipeReponse } from './recipe.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FavoriteRecipesService } from 'src/app/core/services/favorite-recipes.service';
+import { Recipe } from 'src/app/shared/shared.interfaces';
 
 @Component({
   selector: 'app-recipe',
@@ -23,10 +25,15 @@ export class RecipeComponent implements OnInit {
     public spinnerService: SpinnerService,
     private recipeService: RecipeService,
     private sanitizer: DomSanitizer,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private favoriteRecipesService: FavoriteRecipesService
   ) {}
 
   ngOnInit(): void {
+    const recipesIds: string[] = this.favoriteRecipesService
+      .getFavoriteRecipes()
+      .map((r: Recipe) => r.idMeal);
+
     this.activatedRoute.params.subscribe(({ id }) => {
       this.recipeService
         .getFullRecipeById(id)
@@ -56,6 +63,12 @@ export class RecipeComponent implements OnInit {
             this.tags = this.fullRecipe.strTags.split(',');
           } else {
             this.tags = [];
+          }
+
+          if (recipesIds.includes(this.fullRecipe.idMeal)) {
+            this.favoriteIcon = 'favorite';
+          } else {
+            this.favoriteIcon = 'favorite_border';
           }
         });
     });
@@ -101,16 +114,18 @@ export class RecipeComponent implements OnInit {
     return measures;
   }
 
-  addToFavorites() {
+  addToFavorites(recipe: Recipe) {
     if (this.favoriteIcon === 'favorite_border') {
       this.favoriteIcon = 'favorite';
-      this.snackBar.open('Se guardo en favoritos!', 'Aceptar', {
+      this.favoriteRecipesService.saveRecipe(recipe);
+      this.snackBar.open('Saved in favorites!', 'Close', {
         duration: 3000,
         panelClass: 'snackbar-succefully',
       });
     } else {
       this.favoriteIcon = 'favorite_border';
-      this.snackBar.open('Se eliminó de favoritos!', 'Aceptar', {
+      this.favoriteRecipesService.deleteRecipe(recipe.idMeal);
+      this.snackBar.open('It was removed from favorites!', 'Close', {
         duration: 3000,
         panelClass: 'snackbar-delete',
       });
