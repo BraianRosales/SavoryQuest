@@ -1,6 +1,15 @@
 <div class="favorites">
+  <header>
+    <h1>Favorites</h1>
+    <mat-icon (click)="deleteRecipes()">delete_outline</mat-icon>
+  </header>
   <section class="wrapper">
-    {{ favorites | json }}
+    <mat-card class="card" *ngFor="let recipe of favorites">
+      <app-card
+        [recipe]="recipe"
+        (imgClick)="redirectToRecipeDetail($event)"
+        (handleAddOrDelete)="handleAddOrDelete($event)"
+      ></app-card>
+    </mat-card>
   </section>
-  <button (click)="deleteRecipes()">Clean</button>
 </div>

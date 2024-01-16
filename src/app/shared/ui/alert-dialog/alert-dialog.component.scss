@@ -1,0 +1,27 @@
+@use "../../../../scss/util" as u;
+
+.alertDialog {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: white;
+
+    mat-icon {
+        color: u.$secondary-color;
+        font-size: 65px;
+        width: 65px;
+        height: 65px;
+    }
+
+    h2 {
+        color: black;
+        text-align: center;
+    }
+}
+
+::ng-deep .mat-dialog-container {
+    padding: 0px !important;
+}

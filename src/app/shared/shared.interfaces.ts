@@ -3,3 +3,8 @@ export interface Recipe {
   strMealThumb: string;
   idMeal: string;
 }
+
+export interface DialogData {
+  icon: string;
+  question: string;
+}

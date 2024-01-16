@@ -11,6 +11,8 @@ import { FavoriteRecipesService } from 'src/app/core/services/favorite-recipes.s
 export class CardComponent implements OnInit {
   @Input() recipe!: Recipe;
   @Output() imgClick: EventEmitter<string> = new EventEmitter<string>();
+  @Output() handleAddOrDelete: EventEmitter<string> =
+    new EventEmitter<string>();
 
   favoriteIcon: string = 'favorite_border';
 
@@ -39,6 +41,7 @@ export class CardComponent implements OnInit {
         duration: 3000,
         panelClass: 'snackbar-succefully',
       });
+      this.handleAddOrDelete.emit('add');
     } else {
       this.favoriteIcon = 'favorite_border';
       this.favoriteRecipesService.deleteRecipe(recipe.idMeal);
@@ -46,6 +49,7 @@ export class CardComponent implements OnInit {
         duration: 3000,
         panelClass: 'snackbar-delete',
       });
+      this.handleAddOrDelete.emit('removed');
     }
   }
 
