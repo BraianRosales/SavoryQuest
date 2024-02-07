@@ -64,13 +64,13 @@ header {
         align-items: center;
 
         .iconWrapper {
-            width: 55px;
-            height: 55px;
-            background-color: whitesmoke;
+            width: 70px;
+            height: 70px;
+            background-color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 5px;
+            border-radius: 50%;
 
             mat-icon {
                 width: 40px;

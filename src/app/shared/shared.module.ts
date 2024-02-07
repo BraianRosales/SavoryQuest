@@ -6,9 +6,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './ui/card/card.component';
 import { NavigationComponent } from './ui/navigation/navigation.component';
 import { AlertDialogComponent } from './ui/alert-dialog/alert-dialog.component';
+import { ButtonComponent } from './ui/button/button.component';
 @NgModule({
   imports: [MaterialModule, CommonModule, ReactiveFormsModule],
-  declarations: [SpinnerComponent, CardComponent, NavigationComponent, AlertDialogComponent],
+  declarations: [SpinnerComponent, CardComponent, NavigationComponent, AlertDialogComponent, ButtonComponent],
   exports: [
     MaterialModule,
     SpinnerComponent,

@@ -23,7 +23,7 @@ export class AppComponent {
       route: 'favorites',
     },
     {
-      name: 'Searches',
+      name: 'Search by',
       icon: 'search',
       route: 'searches',
     },

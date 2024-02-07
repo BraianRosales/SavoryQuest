@@ -3,6 +3,8 @@
 #mySidenav {
     background-color: var(--sidenav-color);
     padding: 10px;
+    height: 80vh;
+    border-bottom-right-radius: 5px;
 }
 
 #sidenavContent {
