@@ -1,0 +1,15 @@
+<section class="searchBy">
+  <mat-form-field appearance="fill">
+    <mat-label>Search by</mat-label>
+    <mat-select name="item">
+      <mat-option
+        (click)="selectOption(item)"
+        selectOption
+        *ngFor="let item of searchList"
+        [value]="item.value"
+      >
+        {{ item.description }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</section>

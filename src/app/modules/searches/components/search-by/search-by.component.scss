@@ -1,0 +1,35 @@
+@use "../../../../../scss/util" as u;
+
+// TODO: I have to change the color from the select bar. 
+
+::ng-deep .mat-select-panel {
+    background-color: white;
+}
+
+::ng-deep .mat-select-value-text {
+    color: black;
+}
+
+::ng-deep .mat-focused .mat-form-field-underline {
+    background-color: u.$secondary-color;
+}
+
+::ng-deep .mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-underline {
+    background-color: u.$secondary-color;
+}
+
+::ng-deep .mat-option-text {
+    color: black;
+}
+
+::ng-deep mat-label {
+    color: u.$secondary-color;
+}
+
+::ng-deep .mat-select-arrow {
+    color: black;
+}
+
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: black;
+}
