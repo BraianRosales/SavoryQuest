@@ -9,12 +9,19 @@ import { AlertDialogComponent } from './ui/alert-dialog/alert-dialog.component';
 import { ButtonComponent } from './ui/button/button.component';
 @NgModule({
   imports: [MaterialModule, CommonModule, ReactiveFormsModule],
-  declarations: [SpinnerComponent, CardComponent, NavigationComponent, AlertDialogComponent, ButtonComponent],
+  declarations: [
+    SpinnerComponent,
+    CardComponent,
+    NavigationComponent,
+    AlertDialogComponent,
+    ButtonComponent,
+  ],
   exports: [
     MaterialModule,
     SpinnerComponent,
     CardComponent,
     NavigationComponent,
+    ButtonComponent,
   ],
 })
 export class SharedModule {}

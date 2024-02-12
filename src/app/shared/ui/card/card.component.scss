@@ -3,13 +3,20 @@
 ::ng-deep.snackbar-succefully {
     background-color: u.$secondary-color;
     color: white;
+
+    button {
+        color: u.$lighter-yellow;
+    }
 }
 
 ::ng-deep.snackbar-delete {
     color: black;
     background-color: u.$lighter-yellow;
-}
 
+    button {
+        color: u.$secondary-color;
+    }
+}
 
 .card {
     width: 250px;

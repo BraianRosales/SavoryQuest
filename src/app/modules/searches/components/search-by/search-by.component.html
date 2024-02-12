@@ -12,4 +12,44 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+
+  <mat-form-field *ngIf="searchType === 'name'" appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <input
+      matInput
+      placeholder="Ex. Big Mac"
+      [formControl]="nameToFindControl"
+    />
+  </mat-form-field>
+
+  <mat-form-field *ngIf="searchType === 'area'" appearance="fill">
+    <mat-label>Area</mat-label>
+    <mat-select name="area">
+      <mat-option
+        (click)="selectedArea(area.strArea)"
+        selectOption
+        *ngFor="let area of recipeAreas"
+        [value]="area.strArea"
+      >
+        {{ area.strArea }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="searchType === 'ingredients'" appearance="fill">
+    <mat-label>Favorite ingredient</mat-label>
+    <input
+      matInput
+      placeholder="Ex. Rice"
+      [formControl]="ingredientToFindControl"
+    />
+  </mat-form-field>
+
+  <app-button
+    class="button"
+    [panelClass]="this.isButtonEnabled() ? 'primary' : 'disabled'"
+    *ngIf="searchType"
+    text="Search"
+    (click)="sendSearchBy()"
+  ></app-button>
 </section>

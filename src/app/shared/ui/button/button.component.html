@@ -1,8 +1,9 @@
 <button
   class="btn"
   [ngClass]="{
-    'btn-primary': btnType === 'primary',
-    'btn-secondary': btnType === 'secondary'
+    'btn-primary': panelClass === 'primary',
+    'btn-secondary': panelClass === 'secondary',
+    'btn-disabled': panelClass === 'disabled'
   }"
 >
   {{ text }}

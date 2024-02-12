@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchBy } from './searches.interfaces';
 
 @Component({
   selector: 'app-searches',
@@ -9,4 +10,8 @@ export class SearchesComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  eventSearchBy($event: SearchBy) {
+    console.log('$event:', $event);
+  }
 }

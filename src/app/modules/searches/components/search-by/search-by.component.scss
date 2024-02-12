@@ -1,6 +1,13 @@
 @use "../../../../../scss/util" as u;
 
-// TODO: I have to change the color from the select bar. 
+.searchBy {
+    display: flex;
+    gap: 25px;
+
+    .button {
+        padding-top: 5px;
+    }
+}
 
 ::ng-deep .mat-select-panel {
     background-color: white;
@@ -32,4 +39,8 @@
 
 ::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
     color: black;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: u.$primary-color;
 }
