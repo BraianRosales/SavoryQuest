@@ -13,5 +13,5 @@ export interface AreaName {
 
 export interface SearchBy {
   type: string;
-  value: string | number;
+  value: string;
 }

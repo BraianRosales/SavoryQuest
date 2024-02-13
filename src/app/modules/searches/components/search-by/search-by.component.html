@@ -1,4 +1,4 @@
-<section class="searchBy">
+<form [formGroup]="searchByForm" class="searchBy" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="fill">
     <mat-label>Search by</mat-label>
     <mat-select name="item">
@@ -15,18 +15,13 @@
 
   <mat-form-field *ngIf="searchType === 'name'" appearance="fill">
     <mat-label>Favorite food</mat-label>
-    <input
-      matInput
-      placeholder="Ex. Big Mac"
-      [formControl]="nameToFindControl"
-    />
+    <input matInput placeholder="Ex. Big Mac" formControlName="name" />
   </mat-form-field>
 
   <mat-form-field *ngIf="searchType === 'area'" appearance="fill">
     <mat-label>Area</mat-label>
-    <mat-select name="area">
+    <mat-select formControlName="area">
       <mat-option
-        (click)="selectedArea(area.strArea)"
         selectOption
         *ngFor="let area of recipeAreas"
         [value]="area.strArea"
@@ -38,11 +33,7 @@
 
   <mat-form-field *ngIf="searchType === 'ingredients'" appearance="fill">
     <mat-label>Favorite ingredient</mat-label>
-    <input
-      matInput
-      placeholder="Ex. Rice"
-      [formControl]="ingredientToFindControl"
-    />
+    <input matInput placeholder="Ex. Rice" formControlName="ingredient" />
   </mat-form-field>
 
   <app-button
@@ -50,6 +41,5 @@
     [panelClass]="this.isButtonEnabled() ? 'primary' : 'disabled'"
     *ngIf="searchType"
     text="Search"
-    (click)="sendSearchBy()"
   ></app-button>
-</section>
+</form>

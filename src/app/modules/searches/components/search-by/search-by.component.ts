@@ -6,7 +6,12 @@ import {
   SearchItem,
 } from '../../searches.interfaces';
 import { SearchesService } from '../../searches.service';
-import { FormControl, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-search-by',
@@ -31,27 +36,45 @@ export class SearchByComponent implements OnInit {
       description: 'Ingredients',
     },
   ];
-  seachBy: SearchBy = {
+  searchBy: SearchBy = {
     type: '',
     value: '',
   };
   recipeAreas: AreaName[] = [];
-  nameToFindControl = new FormControl('', [Validators.required]);
-  ingredientToFindControl = new FormControl('', [Validators.required]);
-  areaToFind: string = '';
+  searchByForm!: FormGroup;
 
-  // TODO: change individual formControl to formControl reactive forms
+  constructor(
+    private searchesService: SearchesService,
+    private fb: FormBuilder
+  ) {}
 
-  constructor(private searchesService: SearchesService) {}
+  ngOnInit(): void {
+    this.searchByForm = this.fb.group({
+      name: ['', [Validators.required]],
+      area: ['', [Validators.required]],
+      ingredient: ['', [Validators.required]],
+    });
+  }
 
-  ngOnInit(): void {}
+  get name() {
+    return this.searchByForm.get('name');
+  }
+
+  get area() {
+    return this.searchByForm.get('area');
+  }
+
+  get ingredient() {
+    return this.searchByForm.get('ingredient');
+  }
 
   selectOption(item: SearchItem) {
+    this.searchByForm.reset();
     if (item.value === 1) {
       this.searchType = 'name';
     }
     if (item.value === 2) {
-      this.searchesService.searchByArea().subscribe((areas: AreasResponse) => {
+      this.searchesService.getAllAreas().subscribe((areas: AreasResponse) => {
         this.recipeAreas = areas.meals;
         if (this.recipeAreas.length > 0) {
           this.searchType = 'area';
@@ -63,41 +86,33 @@ export class SearchByComponent implements OnInit {
     }
   }
 
-  selectedArea(area: string) {
-    this.areaToFind = area;
-  }
-
-  sendSearchBy() {
+  onSubmit() {
     if (this.searchType === 'name') {
-      this.seachBy = {
+      this.searchBy = {
         type: 'name',
-        value: this.nameToFindControl.value,
+        value: this.name?.value,
       };
-      this.eventSearchBy.emit(this.seachBy);
+      this.eventSearchBy.emit(this.searchBy);
     }
 
     if (this.searchType === 'area') {
-      this.seachBy = {
+      this.searchBy = {
         type: 'area',
-        value: this.areaToFind,
+        value: this.area?.value,
       };
-      this.eventSearchBy.emit(this.seachBy);
+      this.eventSearchBy.emit(this.searchBy);
     }
 
     if (this.searchType === 'ingredients') {
-      this.seachBy = {
+      this.searchBy = {
         type: 'ingredients',
-        value: this.ingredientToFindControl.value,
+        value: this.ingredient?.value,
       };
-      this.eventSearchBy.emit(this.seachBy);
+      this.eventSearchBy.emit(this.searchBy);
     }
   }
 
-  isButtonEnabled(): boolean {
-    return (
-      this.areaToFind !== '' ||
-      this.nameToFindControl.valid ||
-      this.ingredientToFindControl.valid
-    );
+  isButtonEnabled(): boolean | undefined {
+    return this.area?.valid || this.name?.valid || this.ingredient?.valid;
   }
 }

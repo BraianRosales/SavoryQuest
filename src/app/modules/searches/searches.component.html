@@ -1,4 +1,12 @@
 <div class="searches">
   <app-search-by (eventSearchBy)="eventSearchBy($event)"></app-search-by>
-  <app-search-result></app-search-result>
+  <main *ngIf="fullRecipeReponse">
+    <app-search-result
+      *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
+      [recipes]="fullRecipeReponse.meals"
+    ></app-search-result>
+    <ng-template #showSpinner>
+      <app-spinner class="spinner"></app-spinner>
+    </ng-template>
+  </main>
 </div>
