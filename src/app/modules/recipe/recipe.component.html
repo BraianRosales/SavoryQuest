@@ -14,15 +14,20 @@
         </div>
         <div class="info">
           <b>Category:</b>
-          <p class="highlight">{{ fullRecipe.strCategory }}</p>
+          <p
+            class="highlight"
+            (click)="redirectToDetail(fullRecipe.strCategory)"
+          >
+            {{ fullRecipe.strCategory }}
+          </p>
         </div>
         <div class="info">
           <b>Area:</b>
-          <p class="highlight">{{ fullRecipe.strArea }}</p>
+          <p>{{ fullRecipe.strArea }}</p>
         </div>
         <div class="info tags">
           <b>Tags:</b>
-          <p *ngIf="tags?.length == 0">No contiene.</p>
+          <p *ngIf="tags?.length == 0">No contiene</p>
           <div *ngIf="tags.length">
             <span class="tag" *ngFor="let tag of tags">{{ tag }}</span>
           </div>

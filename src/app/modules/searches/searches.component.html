@@ -1,5 +1,9 @@
 <div class="searches">
   <app-search-by (eventSearchBy)="eventSearchBy($event)"></app-search-by>
+  <h1 *ngIf="fullRecipeReponse">
+    Recipes found
+    <span class="title">{{ fullRecipeReponse.meals.length }}</span>
+  </h1>
   <main *ngIf="fullRecipeReponse">
     <app-search-result
       *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"

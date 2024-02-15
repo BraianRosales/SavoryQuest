@@ -1,4 +1,14 @@
+@use "../../../scss/util" as u;
+
 .searches {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+        color: u.$secondary-color;
+    }
+
     .spinner {
         display: flex;
         justify-content: center;

@@ -5,11 +5,8 @@
   </header>
   <section class="wrapper">
     <mat-card class="card" *ngFor="let recipe of favorites">
-      <app-card
-        [recipe]="recipe"
-        (imgClick)="redirectToRecipeDetail($event)"
-        (handleAddOrDelete)="handleAddOrDelete($event)"
-      ></app-card>
+      <app-card [recipe]="recipe" (imgClick)="redirectToRecipeDetail($event)"
+        (handleAddOrDelete)="handleAddOrDelete($event)"></app-card>
     </mat-card>
   </section>
 </div>

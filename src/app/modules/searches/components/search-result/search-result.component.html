@@ -1,1 +1,9 @@
-{{ recipes | json }}
+<div class="searchResult">
+  <mat-card class="card" *ngFor="let recipe of recipes">
+    <app-card
+      [recipe]="recipe"
+      (imgClick)="redirectToRecipeDetail($event)"
+    >
+    </app-card>
+  </mat-card>
+</div>

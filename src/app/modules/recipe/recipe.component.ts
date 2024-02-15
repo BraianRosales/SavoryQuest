@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SpinnerService } from 'src/app/shared/services/spinner.service';
 import { RecipeService } from './recipe.service';
 import { FullRecipe, FullRecipeReponse } from './recipe.model';
@@ -26,7 +26,8 @@ export class RecipeComponent implements OnInit {
     private recipeService: RecipeService,
     private sanitizer: DomSanitizer,
     private snackBar: MatSnackBar,
-    private favoriteRecipesService: FavoriteRecipesService
+    private favoriteRecipesService: FavoriteRecipesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -130,5 +131,9 @@ export class RecipeComponent implements OnInit {
         panelClass: 'snackbar-delete',
       });
     }
+  }
+
+  redirectToDetail(name: string) {
+    this.router.navigate([`categories/${name}`]);
   }
 }
