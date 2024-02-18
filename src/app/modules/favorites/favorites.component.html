@@ -1,8 +1,15 @@
 <div class="favorites">
   <header>
     <h1>Favorites</h1>
-    <mat-icon (click)="deleteRecipes()">delete_outline</mat-icon>
+    <mat-icon [ngClass]="{'iconDisabled': favorites.length == 0}" (click)="deleteRecipes()">delete_sweep</mat-icon>
   </header>
+  <section *ngIf="favorites.length == 0" class="emptyList">
+    <div class="iconWrapper">
+      <mat-icon>image_search</mat-icon>
+      <h1>No Results Found</h1>
+      <p>You haven't saved any recipes as favorites yet.</p>
+    </div>
+  </section>
   <section class="wrapper">
     <mat-card class="card" *ngFor="let recipe of favorites">
       <app-card [recipe]="recipe" (imgClick)="redirectToRecipeDetail($event)"

@@ -9,6 +9,10 @@
     }
 }
 
+mat-form-field {
+    width: 270px;
+}
+
 ::ng-deep .mat-select-panel {
     background-color: white;
 }
@@ -30,6 +34,7 @@
 }
 
 ::ng-deep mat-label {
+    font-size: 18px;
     color: u.$secondary-color;
 }
 

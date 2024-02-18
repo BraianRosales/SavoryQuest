@@ -2,13 +2,12 @@
   <app-search-by (eventSearchBy)="eventSearchBy($event)"></app-search-by>
   <h1 *ngIf="fullRecipeReponse">
     Recipes found
-    <span class="title">{{ fullRecipeReponse.meals.length }}</span>
+    (<span class="title">{{ fullRecipeReponse.meals.length }}</span>)
   </h1>
   <main *ngIf="fullRecipeReponse">
-    <app-search-result
-      *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
-      [recipes]="fullRecipeReponse.meals"
-    ></app-search-result>
+    <app-search-result *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
+      [recipes]="fullRecipeReponse.meals"></app-search-result>
+    <!-- TODO: I need to show an alert when the search is empty. -->
     <ng-template #showSpinner>
       <app-spinner class="spinner"></app-spinner>
     </ng-template>

@@ -10,11 +10,11 @@
     .list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 20px;
 
         .card {
-            width: 300px;
+            width: 285px;
             background: u.$white-background;
             color: black;
             padding-bottom: 20px;

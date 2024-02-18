@@ -5,13 +5,13 @@
     color: white;
 
     button {
-        color: u.$lighter-yellow;
+        color: u.$alert-yellow;
     }
 }
 
 ::ng-deep.snackbar-delete {
     color: black;
-    background-color: u.$lighter-yellow;
+    background-color: u.$alert-yellow;
 
     button {
         color: u.$secondary-color;

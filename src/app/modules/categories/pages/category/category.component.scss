@@ -5,8 +5,7 @@
     border-radius: 3px;
 
     h1 {
-        color: u.$primary-color;
-        margin-bottom: 0px;
+        color: u.$secondary-color;
     }
 
     .details {
@@ -43,7 +42,6 @@
                     width: 40%;
                     display: flex;
                     flex-direction: column;
-                    gap: 7px;
                     border-left: 1px solid u.$border;
                 }
             }
@@ -53,11 +51,6 @@
         .recipesContent {
             display: flex;
             flex-direction: column;
-            gap: 50px;
-
-            h1 {
-                padding-left: 35px;
-            }
 
             .list {
                 display: flex;
@@ -73,6 +66,16 @@
                     &:hover {
                         box-shadow: 0px 1px 8px 0px black;
                     }
+                }
+            }
+
+            .title {
+                color: u.$primary-color;
+                text-align: center;
+                margin: 40px 0px 40px 0px;
+
+                span {
+                    color: u.$secondary-color;
                 }
             }
         }
