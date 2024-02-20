@@ -3,7 +3,7 @@ $white-background: #fefefe;
 $lighter-gray: gainsboro;
 $dark-gray: lightslategray;
 $alert-yellow: #FFFFE0;
-$lighter-yellow: khaki;
+$lighter-yellow: rgba(249, 171, 0, 0.2);
 $lighter-blue-1: lightblue;
 $purple: #9FA4D7;
 $blue: blue;
@@ -18,7 +18,7 @@ $dark-orange: #f44336;
 $primary-color: $dark-green;
 $secondary-color: $dark-orange;
 // BUTTON
-$primary-button-background: $secondary-color;
+$primary-button-background: $primary-color;
 $secondary-button-background: $lighter-yellow;
 $disabled-button-background: $lighter-gray;
 // BORDERS

@@ -10,7 +10,10 @@ import { SpinnerService } from 'src/app/shared/services/spinner.service';
   styleUrls: ['./searches.component.scss'],
 })
 export class SearchesComponent implements OnInit {
-  fullRecipeReponse!: FullRecipeReponse;
+  searchActive: boolean = false;
+  fullRecipeReponse: FullRecipeReponse = {
+    meals: [],
+  };
 
   constructor(
     private searchesService: SearchesService,
@@ -38,6 +41,8 @@ export class SearchesComponent implements OnInit {
       .searchByName(value)
       .subscribe((res: FullRecipeReponse) => {
         this.fullRecipeReponse = res;
+        console.log('ENTRA:', this.fullRecipeReponse);
+        this.searchActive = true;
       });
   }
 
@@ -46,6 +51,7 @@ export class SearchesComponent implements OnInit {
       .searchByArea(value)
       .subscribe((res: FullRecipeReponse) => {
         this.fullRecipeReponse = res;
+        this.searchActive = true;
       });
   }
 
@@ -54,6 +60,7 @@ export class SearchesComponent implements OnInit {
       .searchByIngredient(value)
       .subscribe((res: FullRecipeReponse) => {
         this.fullRecipeReponse = res;
+        this.searchActive = true;
       });
   }
 }

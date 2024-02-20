@@ -1,15 +1,27 @@
 <div class="searches">
   <app-search-by (eventSearchBy)="eventSearchBy($event)"></app-search-by>
-  <h1 *ngIf="fullRecipeReponse">
-    Recipes found
-    (<span class="title">{{ fullRecipeReponse.meals.length }}</span>)
-  </h1>
-  <main *ngIf="fullRecipeReponse">
-    <app-search-result *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
-      [recipes]="fullRecipeReponse.meals"></app-search-result>
-    <!-- TODO: I need to show an alert when the search is empty. -->
-    <ng-template #showSpinner>
-      <app-spinner class="spinner"></app-spinner>
-    </ng-template>
-  </main>
+  <div class="result" *ngIf="fullRecipeReponse.meals?.length; else listNoFound">
+    <h1>
+      Recipes found (<span class="title">{{
+        fullRecipeReponse.meals.length
+      }}</span
+      >)
+    </h1>
+    <main>
+      <app-search-result
+        *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
+        [recipes]="fullRecipeReponse.meals"
+      ></app-search-result>
+      <ng-template #showSpinner>
+        <app-spinner class="spinner"></app-spinner>
+      </ng-template>
+    </main>
+  </div>
+  <ng-template #listNoFound>
+    <app-no-results-found
+      *ngIf="fullRecipeReponse.meals == null && searchActive"
+      title="No Results Found"
+      text="We could not find any recipe with that reference."
+    ></app-no-results-found>
+  </ng-template>
 </div>

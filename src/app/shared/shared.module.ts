@@ -7,6 +7,7 @@ import { CardComponent } from './ui/card/card.component';
 import { NavigationComponent } from './ui/navigation/navigation.component';
 import { AlertDialogComponent } from './ui/alert-dialog/alert-dialog.component';
 import { ButtonComponent } from './ui/button/button.component';
+import { NoResultsFoundComponent } from './ui/no-results-found/no-results-found.component';
 @NgModule({
   imports: [MaterialModule, CommonModule, ReactiveFormsModule],
   declarations: [
@@ -15,6 +16,7 @@ import { ButtonComponent } from './ui/button/button.component';
     NavigationComponent,
     AlertDialogComponent,
     ButtonComponent,
+    NoResultsFoundComponent,
   ],
   exports: [
     MaterialModule,
@@ -22,6 +24,7 @@ import { ButtonComponent } from './ui/button/button.component';
     CardComponent,
     NavigationComponent,
     ButtonComponent,
+    NoResultsFoundComponent,
   ],
 })
 export class SharedModule {}

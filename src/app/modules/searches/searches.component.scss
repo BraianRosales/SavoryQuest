@@ -3,16 +3,24 @@
 .searches {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
 
-    .title {
-        color: u.$secondary-color;
-    }
-
-    .spinner {
+    .result {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 50vh;
+        flex-direction: column;
+        gap: 10px;
+
+        .title {
+            color: u.$secondary-color;
+        }
+
+        .spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
     }
+
+
 }
