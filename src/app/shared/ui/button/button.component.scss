@@ -7,15 +7,19 @@
     height: 45px;
     cursor: pointer;
     border: none;
+    color: white;
 
     &-primary {
         background-color: u.$primary-button-background;
-        color: white;
     }
 
     &-secondary {
         background-color: u.$secondary-button-background;
         color: black;
+    }
+
+    &-tertiary {
+        background-color: u.$tertiary-button-background;
     }
 
     &-disabled {

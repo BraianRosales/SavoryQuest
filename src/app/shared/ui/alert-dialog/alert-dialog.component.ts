@@ -10,7 +10,5 @@ import { DialogData } from '../../shared.interfaces';
 export class AlertDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-  ngOnInit(): void {
-    console.log('DIALOG-DATA:', this.data);
-  }
+  ngOnInit(): void {}
 }

@@ -41,7 +41,6 @@ export class SearchesComponent implements OnInit {
       .searchByName(value)
       .subscribe((res: FullRecipeReponse) => {
         this.fullRecipeReponse = res;
-        console.log('ENTRA:', this.fullRecipeReponse);
         this.searchActive = true;
       });
   }
