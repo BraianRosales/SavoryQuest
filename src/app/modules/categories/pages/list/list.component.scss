@@ -52,3 +52,33 @@
         height: 50vh;
     }
 }
+
+@media (max-width: 1136px) {
+    .listContainer {
+        .list {
+            .card {
+                width: 195px;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .listContainer {
+        .list {
+            .card {
+                width: 230px;
+            }
+        }
+    }
+}
+
+@media (max-width: 618px) {
+    .listContainer {
+        .list {
+            .card {
+                width: 285px;
+            }
+        }
+    }
+}

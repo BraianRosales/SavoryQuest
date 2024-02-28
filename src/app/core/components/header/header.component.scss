@@ -82,3 +82,27 @@ header {
 
     }
 }
+
+
+@media (max-width: 795px) {
+    header {
+        .presentation {
+            width: 100%;
+        }
+    }
+}
+
+
+@media (max-width: 360px) {
+    header {
+        .presentation {
+            .projectName {
+                & h1 {
+                    font-size: 35px;
+                    text-shadow: 2px 2px 3px black;
+                }
+            }
+
+        }
+    }
+}

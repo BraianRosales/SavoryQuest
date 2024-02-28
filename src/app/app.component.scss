@@ -15,7 +15,7 @@
 
     main {
         width: 80%;
-        padding: 100px 0px 80px 0px;
+        padding: 60px 0px 80px 0px;
     }
 }
 
@@ -64,6 +64,14 @@ mat-icon {
 
         mat-icon {
             color: u.$dark-green;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    #sidenavContent {
+        main {
+            padding: 35px 0px 80px 0px;
         }
     }
 }
