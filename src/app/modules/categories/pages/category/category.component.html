@@ -1,9 +1,15 @@
-<div class="category" *ngIf="!(spinnerService.isLoading$ | async); else showSpinner">
+<div
+  class="category"
+  *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
+>
   <div class="details">
     <section class="content">
       <div class="wrapper">
         <div class="imageWrapper">
-          <img src="{{ category?.strCategoryThumb }}" alt="{{ category?.strCategory }}" />
+          <img
+            src="{{ category?.strCategoryThumb }}"
+            alt="{{ category?.strCategory }}"
+          />
         </div>
         <article class="description">
           <h1>{{ category?.strCategory }}</h1>
@@ -12,10 +18,16 @@
       </div>
     </section>
     <section class="recipesContent">
-      <h1 class="title">Recipes found (<span>{{recipes.length}}</span>)</h1>
+      <h1 class="title">
+        Recipes found (<span>{{ recipes?.length }}</span
+        >)
+      </h1>
       <div class="list">
         <mat-card class="card" *ngFor="let recipe of recipes">
-          <app-card [recipe]="recipe" (imgClick)="redirectToRecipeDetail($event)"></app-card>
+          <app-card
+            [recipe]="recipe"
+            (imgClick)="redirectToRecipeDetail($event)"
+          ></app-card>
         </mat-card>
       </div>
     </section>

@@ -1,12 +1,8 @@
 @use "../util/colors" as c;
 
-@mixin underlinedTitle {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 42%;
-    height: 4px;
-    border-radius: 2px;
-    background-color: c.$medium-orange;
+@mixin sectionShadow {
+    background-color: c.$primary-color;
+    opacity: 0.8;
+    border-radius: 3px;
+    color: white;
 }

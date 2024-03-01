@@ -29,7 +29,7 @@ header {
             mat-icon {
                 width: 100%;
                 font-size: 55px;
-                color: whitesmoke;
+                color: black;
                 cursor: pointer;
                 transition: color 500ms ease-in-out;
 
@@ -52,7 +52,9 @@ header {
 
             & p {
                 font-size: 22px;
-                color: u.$medium-orange;
+                color: blanchedalmond;
+                text-shadow: 2px 0px 3px #000;
+                font-weight: 400;
             }
         }
     }

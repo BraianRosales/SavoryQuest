@@ -5,10 +5,11 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
 
         h1 {
             margin: 0px;
+            font-weight: u.$font-weight-medium;
         }
 
         mat-icon {
@@ -16,6 +17,11 @@
             height: 38px;
             width: 35px;
             font-size: 35px;
+            color: black;
+            transition: 0.5s;
+        }
+
+        mat-icon:hover {
             color: u.$secondary-color;
         }
 

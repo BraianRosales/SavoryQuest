@@ -14,8 +14,8 @@
     justify-content: center;
 
     main {
-        width: 80%;
-        padding: 60px 0px 80px 0px;
+        width: 75%;
+        padding: 80px 0px 80px 0px;
     }
 }
 
@@ -24,8 +24,7 @@
     margin-bottom: 5px;
 
     &:hover {
-        background-color: u.$lighter-blue-1;
-        border-radius: 5px;
+        @include u.sectionShadow();
     }
 
     .nameAndIcon {
@@ -50,20 +49,14 @@ mat-icon {
 .link {
     color: black;
     margin-left: 10px;
-
-    &:hover {
-        color: u.$secondary-color;
-    }
 }
 
 .selected-page {
-    background-color: u.$lighter-blue-1;
-    border-radius: 5px;
+    @include u.sectionShadow();
 
     .nameAndIcon {
-
         mat-icon {
-            color: u.$dark-green;
+            color: black;
         }
     }
 }
