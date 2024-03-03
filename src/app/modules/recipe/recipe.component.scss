@@ -27,75 +27,88 @@
         padding: 25px;
 
         main {
-            height: 590px;
             display: flex;
-            justify-content: space-between;
+            background-color: white;
+            padding: 15px;
+            gap: 15px;
 
-            img {
-                width: 52%;
+            .image {
+                width: 50%;
+
+                img {
+                    width: 100%;
+                    border-radius: 3px;
+                }
             }
 
             .detail {
-                width: 47%;
-                height: 100%;
-                background-color: white;
-                padding: 15px;
-                position: relative;
+                width: 50%;
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
+                position: relative;
 
-                h1 {
-                    margin-bottom: 0px;
-                    padding-right: 40px;
-                }
-
-                .iconContainer {
-                    position: absolute;
-                    top: 18px;
-                    right: 22px;
-
-                    mat-icon {
-                        color: u.$secondary-color;
-                        height: 30px;
-                        width: 30px;
-                        font-size: 30px;
-                        cursor: pointer;
-                    }
-                }
-
-                .info {
+                .description {
                     display: flex;
-                    gap: 5px;
+                    flex-direction: column;
+                    gap: 8px;
+                    border-radius: 3px;
 
-                    b {
-                        font-size: u.$font-size-small;
+                    h1 {
+                        margin-bottom: 0px;
+                        padding-right: 40px;
                     }
 
-                    p {
-                        margin-bottom: 8px;
+                    .iconContainer {
+                        position: absolute;
+                        top: 0px;
+                        right: 0px;
+
+                        mat-icon {
+                            color: u.$secondary-color;
+                            height: 35px;
+                            width: 35px;
+                            font-size: 30px;
+                            cursor: pointer;
+                        }
                     }
 
-                    .highlight {
-                        color: u.$secondary-color;
-                        cursor: pointer;
+                    .info {
+                        display: flex;
+                        gap: 5px;
+
+                        b {
+                            font-size: u.$font-size-small;
+                        }
+
+                        p {
+                            margin-bottom: 8px;
+                        }
+
+                        .highlight {
+                            color: u.$secondary-color;
+                            cursor: pointer;
+                        }
+
+                        .tag {
+                            color: white;
+                            background-color: u.$medium-orange;
+                            padding: 3px 10px 3px 10px;
+                            border-radius: 10px;
+                            font-size: 14px;
+                            margin-right: 3px;
+                        }
                     }
 
-                    .tag {
-                        color: white;
-                        background-color: u.$medium-orange;
-                        padding: 3px 10px 3px 10px;
-                        border-radius: 10px;
-                        font-size: 14px;
-                        margin-right: 3px;
+                    .tags {
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        margin-bottom: 5px;
                     }
                 }
 
-                .tags {
-                    align-items: center;
-                    flex-wrap: wrap;
-                    margin-bottom: 5px;
-                }
+
 
 
                 .ingredients,
@@ -104,6 +117,7 @@
                     padding: 10px;
                     color: white;
                     margin-top: 5px;
+                    border-radius: 3px;
 
                     h2 {
                         margin-bottom: 5px;
@@ -111,10 +125,8 @@
 
                     .list {
                         display: flex;
-                        flex-direction: column;
-                        justify-content: flex-start;
                         flex-wrap: wrap;
-                        max-height: 150px;
+                        gap: 10px;
                         padding: 0px 10px 10px 10px;
 
                         .ingredient,
@@ -184,5 +196,101 @@
         justify-content: center;
         align-items: center;
         height: 50vh;
+    }
+}
+
+@media (max-width: 1100px) {
+    .recipe {
+        .content {
+            main {
+                flex-direction: column;
+                padding: 20px;
+                gap: 25px;
+
+                .image {
+                    width: 100%;
+                    height: 650px;
+
+                    img {
+                        height: inherit;
+                        border-radius: 3px;
+                    }
+                }
+
+                .detail {
+                    width: 100%;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .recipe {
+        .content {
+            main {
+                .image {
+                    height: 500px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .recipe {
+        .content {
+            main {
+                .image {
+                    height: 380px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 430px) {
+    .recipe {
+        .content {
+            padding: 0px;
+
+            main {
+                gap: 15px;
+
+                .image {
+                    height: 250px;
+                }
+
+                .detail {
+                    .description {
+
+                        h1 {
+                            margin-bottom: 0px;
+                            padding-right: 40px;
+                            font-size: u.$font-size-medium;
+                            line-height: 25px;
+                        }
+
+                        .iconContainer {
+                            top: 2px;
+
+                            mat-icon {
+                                font-size: 25px;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    ul {
+        margin-left: -20px;
+    }
+
+    p {
+        font-size: u.$font-size-minimum;
     }
 }

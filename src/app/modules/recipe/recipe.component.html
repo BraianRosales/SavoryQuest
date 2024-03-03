@@ -4,32 +4,36 @@
     *ngIf="!(spinnerService.isLoading$ | async); else showSpinner"
   >
     <main>
-      <img src="{{ fullRecipe.strMealThumb }}" alt="Photo not found..." />
+      <div class="image">
+        <img src="{{ fullRecipe.strMealThumb }}" alt="Photo not found..." />
+      </div>
       <aside class="detail">
-        <h1>{{ fullRecipe.strMeal }}</h1>
-        <div class="iconContainer">
-          <mat-icon (click)="addToFavorites(fullRecipe)">{{
-            favoriteIcon
-          }}</mat-icon>
-        </div>
-        <div class="info">
-          <b>Category:</b>
-          <p
-            class="highlight"
-            (click)="redirectToDetail(fullRecipe.strCategory)"
-          >
-            {{ fullRecipe.strCategory }}
-          </p>
-        </div>
-        <div class="info">
-          <b>Area:</b>
-          <p>{{ fullRecipe.strArea }}</p>
-        </div>
-        <div class="info tags">
-          <b>Tags:</b>
-          <p *ngIf="tags?.length == 0">No contiene</p>
-          <div *ngIf="tags.length">
-            <span class="tag" *ngFor="let tag of tags">{{ tag }}</span>
+        <div class="description">
+          <h1>{{ fullRecipe.strMeal }}</h1>
+          <div class="iconContainer">
+            <mat-icon (click)="addToFavorites(fullRecipe)">{{
+              favoriteIcon
+            }}</mat-icon>
+          </div>
+          <div class="info">
+            <b>Category:</b>
+            <p
+              class="highlight"
+              (click)="redirectToDetail(fullRecipe.strCategory)"
+            >
+              {{ fullRecipe.strCategory }}
+            </p>
+          </div>
+          <div class="info">
+            <b>Area:</b>
+            <p>{{ fullRecipe.strArea }}</p>
+          </div>
+          <div class="info tags">
+            <b>Tags:</b>
+            <p *ngIf="tags?.length == 0">It does not have</p>
+            <div *ngIf="tags.length">
+              <span class="tag" *ngFor="let tag of tags">{{ tag }}</span>
+            </div>
           </div>
         </div>
         <div class="ingredients">
