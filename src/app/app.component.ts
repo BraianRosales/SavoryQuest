@@ -35,11 +35,11 @@ export class AppComponent {
       icon: 'developer_mode',
       route: 'https://github.com/BraianRosales/SavoryQuest',
     },
-    {
-      name: 'Portfolio',
-      icon: 'assignment_ind',
-      route: 'https://portfoliobradev.netlify.app/',
-    },
+    // {
+    //   name: 'Portfolio',
+    //   icon: 'assignment_ind',
+    //   route: 'https://portfoliobradev.netlify.app/',
+    // },
   ];
   selectedPage: string = this.pages[0].name;
 
@@ -52,9 +52,14 @@ export class AppComponent {
   selectPage(page: Page): void {
     this.selectedPage = page.name;
     this.router.navigate([`/${page.route}`]);
+    this.sidenav.toggle();
   }
 
   isPageSelected(page: Page): boolean {
     return this.selectedPage === page.name;
+  }
+
+  redirectToLink(route: string): void {
+    window.open(route, '_blank');
   }
 }

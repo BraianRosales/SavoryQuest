@@ -2,7 +2,12 @@
   <mat-form-field appearance="fill">
     <mat-label>Search by</mat-label>
     <mat-select name="item">
-      <mat-option (click)="selectOption(item)" selectOption *ngFor="let item of searchList" [value]="item.value">
+      <mat-option
+        (click)="selectOption(item)"
+        selectOption
+        *ngFor="let item of searchList"
+        [value]="item.value"
+      >
         {{ item.description }}
       </mat-option>
     </mat-select>
@@ -16,7 +21,11 @@
   <mat-form-field *ngIf="searchType === 'area'" appearance="fill">
     <mat-label>Area</mat-label>
     <mat-select formControlName="area">
-      <mat-option selectOption *ngFor="let area of recipeAreas" [value]="area.strArea">
+      <mat-option
+        selectOption
+        *ngFor="let area of recipeAreas"
+        [value]="area.strArea"
+      >
         {{ area.strArea }}
       </mat-option>
     </mat-select>
@@ -27,6 +36,10 @@
     <input matInput placeholder="Ex. Rice" formControlName="ingredient" />
   </mat-form-field>
 
-  <app-button class="button" [panelClass]="this.isButtonEnabled() ? 'primary' : 'disabled'" *ngIf="searchType"
-    text="Search"></app-button>
+  <app-button
+    class="button"
+    [panelClass]="this.isButtonEnabled() ? 'primary' : 'disabled'"
+    *ngIf="searchType"
+    text="Search"
+  ></app-button>
 </form>

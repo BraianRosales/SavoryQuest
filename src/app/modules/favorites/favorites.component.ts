@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -16,7 +17,8 @@ export class FavoritesComponent implements OnInit {
   constructor(
     private favoriteRecipesService: FavoriteRecipesService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private breakpointObserver: BreakpointObserver
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +33,15 @@ export class FavoritesComponent implements OnInit {
       },
       width: '30%',
     });
+    this.breakpointObserver
+      .observe([Breakpoints.Handset, Breakpoints.Small])
+      .subscribe((result) => {
+        if (result.matches) {
+          dialogRef.updateSize('100%');
+        } else {
+          dialogRef.updateSize('30%');
+        }
+      });
     dialogRef.afterClosed().subscribe((bool) => {
       if (bool) {
         this.favoriteRecipesService.deleteAllRecipes();

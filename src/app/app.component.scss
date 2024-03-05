@@ -5,6 +5,7 @@
     padding: 10px;
     height: 80vh;
     border-bottom-right-radius: 5px;
+
 }
 
 #sidenavContent {
@@ -17,6 +18,7 @@
         width: 75%;
         padding: 80px 0px 80px 0px;
     }
+
 }
 
 .page {
@@ -34,6 +36,11 @@
     }
 }
 
+p {
+    margin-left: 10px;
+}
+
+
 mat-icon {
     height: 25px;
     width: 25px;
@@ -42,8 +49,8 @@ mat-icon {
 }
 
 .divider {
-    background-color: gainsboro;
-    margin: 10px 0px 5px 0px;
+    background-color: u.$border;
+    margin: 10px 0px -5px 0px;
 }
 
 .link {
@@ -71,6 +78,5 @@ mat-icon {
 @media (max-width: 800px) {
     #sidenavContent main {
         padding: 35px 0px 80px 0px;
-
     }
 }

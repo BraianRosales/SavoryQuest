@@ -69,6 +69,7 @@
       </ul>
       <div class="videoYt">
         <iframe
+          [ngClass]="{ 'video-iframe-small': isSmallScreen }"
           width="90%"
           height="600"
           [src]="getSafeVideoUrl(videoYt)"

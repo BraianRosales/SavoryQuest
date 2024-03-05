@@ -19,6 +19,7 @@ export class RecipeComponent implements OnInit {
   favoriteIcon: string = 'favorite_border';
   instructions: string[] = [];
   videoYt: string = '';
+  isSmallScreen: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,6 +32,8 @@ export class RecipeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.detectScreenSize();
+
     const recipesIds: string[] = this.favoriteRecipesService
       .getFavoriteRecipes()
       .map((r: Recipe) => r.idMeal);
@@ -135,5 +138,9 @@ export class RecipeComponent implements OnInit {
 
   redirectToDetail(name: string) {
     this.router.navigate([`categories/${name}`]);
+  }
+
+  private detectScreenSize() {
+    this.isSmallScreen = window.innerWidth <= 600;
   }
 }

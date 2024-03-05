@@ -3,26 +3,15 @@
 .favorites {
     header {
         display: flex;
-        align-items: center;
+        justify-content: space-between;
         gap: 5px;
-        margin-bottom: 30px;
+        margin-bottom: 45px;
+        align-items: center;
 
         h1 {
-            margin: 0px;
+            margin-bottom: 0px;
+            font-size: 28px;
             font-weight: u.$font-weight-medium;
-        }
-
-        mat-icon {
-            cursor: pointer;
-            height: 38px;
-            width: 35px;
-            font-size: 35px;
-            color: black;
-            transition: 0.5s;
-        }
-
-        mat-icon:hover {
-            color: u.$secondary-color;
         }
 
         .iconDisabled {
@@ -35,6 +24,7 @@
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
+        justify-content: center;
 
         .card {
             background-color: white;

@@ -1,11 +1,13 @@
 <button
   class="btn"
   [ngClass]="{
+    'btn-original': panelClass === 'original',
     'btn-primary': panelClass === 'primary',
     'btn-secondary': panelClass === 'secondary',
     'btn-tertiary': panelClass === 'tertiary',
     'btn-disabled': panelClass === 'disabled'
   }"
 >
-  {{ text }}
+  <p>{{ text }}</p>
+  <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
 </button>

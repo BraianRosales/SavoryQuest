@@ -16,12 +16,15 @@
     </mat-selection-list>
     <mat-divider class="divider"></mat-divider>
     <mat-nav-list>
-      <mat-list-item *ngFor="let link of links">
-        <mat-icon>{{ link.icon }}</mat-icon>
-        <a class="link" href="{{ link.route }}" target="_blank">
-          {{ link.name }}
-        </a>
-      </mat-list-item>
+      <mat-list>
+        <mat-list-item
+          *ngFor="let link of links"
+          (click)="redirectToLink(link.route)"
+        >
+          <mat-icon>{{ link.icon }}</mat-icon>
+          <p>{{ link.name }}</p>
+        </mat-list-item>
+      </mat-list>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

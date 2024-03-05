@@ -1,11 +1,12 @@
 <div class="favorites">
   <header>
     <h1>Favorites</h1>
-    <mat-icon
-      [ngClass]="{ iconDisabled: favorites.length == 0 }"
+    <app-button
+      [panelClass]="favorites.length == 0 ? 'disabled' : 'original'"
+      [text]="'Clean'"
+      [icon]="'delete_sweep'"
       (click)="deleteRecipes()"
-      >delete_sweep</mat-icon
-    >
+    ></app-button>
   </header>
   <app-no-results-found
     *ngIf="favorites.length == 0"

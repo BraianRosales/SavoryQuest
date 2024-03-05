@@ -8,6 +8,23 @@
     cursor: pointer;
     border: none;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    transition: 1s;
+
+    mat-icon {
+        transition: 1.5s;
+        color: orangered;
+
+    }
+
+    &-original {
+        background-color: white;
+        color: black;
+        border: 1px solid u.$border;
+    }
 
     &-primary {
         background-color: u.$primary-button-background;
@@ -30,5 +47,17 @@
 }
 
 .btn:hover {
-    box-shadow: 0px 1px 5px 0px #0000007d;
+    box-shadow: 0px 1px 5px 0px #0000006c;
+}
+
+@media (max-width: 610px) {
+    .btn {
+        &-primary {
+            width: 278px;
+        }
+
+        &-disabled {
+            width: 278px;
+        }
+    }
 }
