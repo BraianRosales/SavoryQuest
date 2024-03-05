@@ -43,6 +43,10 @@
         background-color: u.$disabled-button-background;
         color: black;
         pointer-events: none;
+
+        mat-icon {
+            color: black;
+        }
     }
 }
 
