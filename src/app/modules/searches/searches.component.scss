@@ -3,12 +3,13 @@
 .searches {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 50px;
 
     .result {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        align-items: center;
 
         .title {
             color: u.$secondary-color;
