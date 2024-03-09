@@ -6,12 +6,7 @@ import {
   SearchItem,
 } from '../../searches.interfaces';
 import { SearchesService } from '../../searches.service';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search-by',

@@ -13,6 +13,7 @@ import { AlertDialogComponent } from 'src/app/shared/ui/alert-dialog/alert-dialo
 })
 export class FavoritesComponent implements OnInit {
   favorites: Recipe[] = [];
+  panelClass: string = 'disabled';
 
   constructor(
     private favoriteRecipesService: FavoriteRecipesService,
@@ -25,33 +26,38 @@ export class FavoritesComponent implements OnInit {
     this.getfavorites();
   }
 
-  deleteRecipes() {
-    const dialogRef = this.dialog.open(AlertDialogComponent, {
-      data: {
-        icon: 'error_outline',
-        question: 'Do you want to remove all recipes from favorites?',
-      },
-      width: '30%',
-    });
-    this.breakpointObserver
-      .observe([Breakpoints.Handset, Breakpoints.Small])
-      .subscribe((result) => {
-        if (result.matches) {
-          dialogRef.updateSize('100%');
-        } else {
-          dialogRef.updateSize('30%');
-        }
-      });
-    dialogRef.afterClosed().subscribe((bool) => {
-      if (bool) {
-        this.favoriteRecipesService.deleteAllRecipes();
-        this.getfavorites();
-      }
-    });
-  }
-
   getfavorites() {
     this.favorites = this.favoriteRecipesService.getFavoriteRecipes();
+    this.favorites.length == 0
+      ? (this.panelClass = 'disabled')
+      : (this.panelClass = 'white');
+  }
+
+  deleteRecipes() {
+    if (this.panelClass !== 'disabled') {
+      const dialogRef = this.dialog.open(AlertDialogComponent, {
+        data: {
+          icon: 'error_outline',
+          question: 'Do you want to remove all recipes from favorites?',
+        },
+        width: '30%',
+      });
+      this.breakpointObserver
+        .observe([Breakpoints.Handset, Breakpoints.Small])
+        .subscribe((result) => {
+          if (result.matches) {
+            dialogRef.updateSize('100%');
+          } else {
+            dialogRef.updateSize('30%');
+          }
+        });
+      dialogRef.afterClosed().subscribe((bool) => {
+        if (bool) {
+          this.favoriteRecipesService.deleteAllRecipes();
+          this.getfavorites();
+        }
+      });
+    }
   }
 
   redirectToRecipeDetail(id: string) {

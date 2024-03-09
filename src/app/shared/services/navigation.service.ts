@@ -13,6 +13,17 @@ export class NavigationService {
     // Recover history from localStorage when initializing service
     const storedHistory = localStorage.getItem(HISTORY_KEY);
     this.history = storedHistory ? JSON.parse(storedHistory) : [];
+
+    window.addEventListener('beforeunload', () => {
+      //Clear history when closing app or browser
+      this.clearHistory();
+    });
+  }
+
+  private clearHistory(): void {
+    // Clear history
+    this.history = [];
+    this.saveHistoryToLocalStorage();
   }
 
   private saveHistoryToLocalStorage(): void {
