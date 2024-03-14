@@ -4,13 +4,19 @@
     .wrapper {
         display: flex;
         flex-direction: column;
+
+        p {
+            width: 100%;
+            padding-bottom: 30px;
+            line-height: 25px;
+        }
     }
 
 
     .list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 20px;
 
         .card {
@@ -37,7 +43,7 @@
         }
 
         .card:nth-last-child(-n+2) img {
-            border-radius: 20%;
+            border-radius: 5px;
             width: 80%;
             height: 180px;
             margin-left: 20px;

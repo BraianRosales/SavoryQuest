@@ -30,7 +30,7 @@ export class FavoritesComponent implements OnInit {
     this.favorites = this.favoriteRecipesService.getFavoriteRecipes();
     this.favorites.length == 0
       ? (this.panelClass = 'disabled')
-      : (this.panelClass = 'white');
+      : (this.panelClass = 'tertiary');
   }
 
   deleteRecipes() {

@@ -3,15 +3,41 @@
 .favorites {
     header {
         display: flex;
-        justify-content: space-between;
-        gap: 5px;
+        flex-direction: column;
         margin-bottom: 45px;
-        align-items: center;
+        gap: 5px;
 
         h1 {
             margin-bottom: 0px;
-            font-size: 28px;
-            font-weight: u.$font-weight-medium;
+            font-size: u.$font-size-titles;
+        }
+
+        .subtitleWithButton {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            p {
+                font-weight: u.$font-weight-medium;
+            }
+
+            .deleteWrapper {
+                background-color: orangered;
+                padding: 3px 6px 3px 6px;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7);
+            }
+
+            .deleteWrapperDisabled {
+                background-color: u.$dark-gray;
+                padding: 3px 6px 3px 6px;
+                color: white;
+                border-radius: 5px;
+                cursor: not-allowed;
+                box-shadow: none
+            }
         }
 
         .iconDisabled {
@@ -24,16 +50,28 @@
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
 
         .card {
             background-color: white;
             transition: 0.5s;
-            border: 1px solid u.$border;
 
             &:hover {
                 box-shadow: 0px 1px 8px 0px black;
             }
+        }
+    }
+}
+
+@media (max-width: 610px) {
+    .favorites {
+        header {
+            align-items: center;
+            margin-bottom: 30px
+        }
+
+        .wrapper {
+            justify-content: center;
         }
     }
 }

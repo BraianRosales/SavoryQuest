@@ -6,7 +6,13 @@
       let last = last
     "
   >
-    <span (click)="selectPage(route)" [ngClass]="{ lastTitle: last }">
+    <span
+      (click)="selectPage(route)"
+      [ngClass]="{
+        lastTitle: last,
+        titleColor: navigationService.getHistory().length > 1
+      }"
+    >
       {{ route.title }}
     </span>
     <span

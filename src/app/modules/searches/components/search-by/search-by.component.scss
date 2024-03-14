@@ -1,6 +1,26 @@
 @use "../../../../../scss/util" as u;
 
-.searchBy {
+.SearchBy {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .titleWrapper {
+        font-weight: u.$font-weight-medium;
+        line-height: 25px;
+
+        h1 {
+            font-size: u.$font-size-titles;
+            margin-bottom: 20px;
+        }
+
+        span {
+            font-weight: u.$font-weight-preBold;
+        }
+    }
+}
+
+form {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
@@ -52,15 +72,35 @@ mat-form-field {
 }
 
 @media (max-width: 610px) {
-    .searchBy {
+    form {
         gap: 10px;
         justify-content: center;
+    }
+
+    .SearchBy {
+        .titleWrapper {
+            text-align: center;
+
+            h1 {
+                margin-bottom: 10px;
+            }
+        }
     }
 }
 
 @media (max-width: 431px) {
-    .searchBy {
+    form {
         gap: 0px;
         justify-content: center;
+    }
+
+    .SearchBy {
+        .titleWrapper {
+            text-align: center;
+
+            h1 {
+                margin-bottom: 10px;
+            }
+        }
     }
 }

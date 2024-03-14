@@ -7,8 +7,7 @@
     align-items: center;
 
     h1 {
-        font-size: 28px;
-        font-weight: u.$font-weight-medium;
+        font-size: u.$font-size-titles;
     }
 
     span {
@@ -17,8 +16,9 @@
         transition: 300ms;
     }
 
-    span:hover {
+    .titleColor:hover {
         color: u.$secondary-color;
+
     }
 
     .lastTitle {

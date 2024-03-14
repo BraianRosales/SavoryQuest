@@ -1,13 +1,16 @@
 <div class="favorites">
   <header>
     <h1>Favorites</h1>
-    <app-button
-      [panelClass]="panelClass"
-      [text]="'Clean'"
-      [icon]="'delete_sweep'"
-      [width]="'100px'"
-      (click)="deleteRecipes()"
-    ></app-button>
+    <div class="subtitleWithButton">
+      <p>This is your list of favorite recipes</p>
+      <div
+        (click)="deleteRecipes()"
+        class="deleteWrapper"
+        [ngClass]="{ deleteWrapperDisabled: favorites.length == 0 }"
+      >
+        <mat-icon>delete_sweep</mat-icon>
+      </div>
+    </div>
   </header>
   <app-no-results-found
     *ngIf="favorites.length == 0"
