@@ -31,6 +31,7 @@
             background-color: white;
             padding: 15px;
             gap: 15px;
+            border: 1px solid u.$border;
 
             .image {
                 width: 50%;
@@ -159,6 +160,7 @@
         }
 
         article {
+            border: 1px solid u.$border;
             background-color: white;
             padding-bottom: 100px;
             display: flex;

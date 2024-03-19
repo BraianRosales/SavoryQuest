@@ -4,7 +4,7 @@
     header {
         display: flex;
         flex-direction: column;
-        margin-bottom: 45px;
+        margin-bottom: 20px;
         gap: 5px;
 
         h1 {
@@ -27,7 +27,6 @@
                 color: white;
                 border-radius: 5px;
                 cursor: pointer;
-                box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7);
             }
 
             .deleteWrapperDisabled {
@@ -46,7 +45,13 @@
         }
     }
 
+    .line {
+        width: 100%;
+        border-bottom: 1px solid u.$border;
+    }
+
     .wrapper {
+        margin-top: 50px;
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
@@ -55,6 +60,7 @@
         .card {
             background-color: white;
             transition: 0.5s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 
             &:hover {
                 box-shadow: 0px 1px 8px 0px black;
