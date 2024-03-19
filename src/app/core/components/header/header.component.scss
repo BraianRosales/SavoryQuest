@@ -106,24 +106,25 @@ header {
 
         .presentation {
             justify-content: flex-start;
-            padding-left: 15px;
+            padding-left: 20px;
             gap: 10px;
+            padding-bottom: 10px;
 
             .projectName {
                 & h1 {
-                    font-size: 32px;
-                    margin-bottom: 8px;
+                    font-size: 40px;
+                    margin-bottom: 12px;
                 }
 
                 & p {
-                    font-size: u.$font-size-big-medium;
+                    font-size: 22px;
                 }
             }
 
             .menu {
                 width: auto;
                 justify-content: center;
-                padding-top: 8px;
+                padding-top: 15px;
             }
         }
     }
